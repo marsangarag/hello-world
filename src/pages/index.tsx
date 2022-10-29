@@ -106,7 +106,7 @@ const Index: NextPage = () => {
                             <div className="absolute z-30 mt-20 text-sm text-gray-600 w-100">
                                 <div className=" mx-5 bg-white divide-y-[0.5px] rounded-[10px]  px-[15px] py-[15px]">
                                     <p className="text-sm text-normal">
-                                        Уг байршилд кофе хүргэх үйлчилгээ
+                                        Уг байршилд хоол хүргэх үйлчилгээ
                                         хараахан нэвтрээгүй байна
                                     </p>
                                 </div>
@@ -128,7 +128,7 @@ const Index: NextPage = () => {
                         >
                             {noResults ? (
                                 <OfficeList
-                                    title="Кофе хүргүүлэх боломжтой оффисууд"
+                                    title="Хоол хүргүүлэх боломжтой оффисууд"
                                     offices={data ? data?.data?.data : offices}
                                     loading={loading}
                                     height={height}
@@ -137,7 +137,7 @@ const Index: NextPage = () => {
                                 />
                             ) : (
                                 <OfficeList
-                                    title="Кофе хүргүүлэх оффисоо сонгоно уу"
+                                    title="Хоол хүргүүлэх оффисоо сонгоно уу"
                                     offices={offices}
                                     loading={loading}
                                     height={height}

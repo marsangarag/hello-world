@@ -14,6 +14,10 @@ module.exports = {
             colors: {
                 "gradient-start": "rgba(255, 190, 120, 1)",
                 "gradient-end": "rgba(255, 122, 31, 1)",
+                main: "rgba(30, 35, 53, 1)",
+            },
+            fontSize: {
+                sm: ["14px", "16px"],
             },
         },
     },

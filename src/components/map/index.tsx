@@ -42,7 +42,7 @@ interface MapProps {
 const options = {
     strokeWeight: 0,
     fillColor: "#ffc800",
-    fillOpacity: 0.35,
+    fillOpacity: 0.25,
     clickable: false,
     draggable: false,
     editable: false,
@@ -137,9 +137,10 @@ const Map: React.FC<MapProps & GeolocatedProps> = ({
                             lng: Number(office.lon),
                         }}
                         icon={{
-                            url: office.pin_icon,
-                            scaledSize: new google.maps.Size(16, 16),
-                            anchor: new google.maps.Point(8, 8),
+                            // url: office.pin_icon,
+                            url: "/images/Pin.svg",
+                            scaledSize: new google.maps.Size(24,34),
+                            anchor: new google.maps.Point(24,34),
                         }}
                         onClick={() => (
                             setCenter({

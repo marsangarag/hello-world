@@ -5,15 +5,15 @@ import LargeWhiteButton from "components/common/large-white-button";
 import { ModalContext } from "lib/context/modal";
 import Office, { Merchant } from "lib/types/office.type";
 import { useAppState } from "lib/context/app";
+import { useRouter } from "next/router";
 
 interface OfficeCardProps {
     office: Office;
 }
 
 const OfficeCard: React.FC<OfficeCardProps> = ({ office }) => {
-    const { handleModal }: any = useContext(ModalContext);
     const [state, dispatch]: any = useAppState();
-
+    const router = useRouter();
     return (
         <div
             id={office._id}
@@ -35,35 +35,16 @@ const OfficeCard: React.FC<OfficeCardProps> = ({ office }) => {
                     type: "notThroughLink",
                     notThroughLink: true,
                 });
-
-                handleModal(
-                    true,
-                    `"${office.name}" кофе шопууд`,
-                    office.merchants.length > 0 ? (
-                        <div className="flex flex-wrap gap-4 overflow-auto scrollbar-hide">
-                            {office.merchants.map(
-                                (merchant: Merchant, index: number) => (
-                                    <CoffeeShopCard
-                                        key={index}
-                                        merchant={merchant}
-                                    />
-                                )
-                            )}
-                        </div>
-                    ) : (
-                        "Уучлаарай, кофе шоп олдсонгүй"
-                    ),
-                    false,
-                    <div className="flex">
-                        <LargeWhiteButton
-                            text="Буцах"
-                            onClick={() => handleModal()}
-                        />
-                    </div>
-                );
             }}
         >
-            <div className="flex items-center">
+            <div
+                onClick={() => {
+                    router.push(
+                        `/office/${office._id}?tokenid=${router.query.tokenid}`
+                    );
+                }}
+                className="flex items-center gap-x-[15px]"
+            >
                 <div className="w-12 shrink-0">
                     <img
                         src={office.logo}
@@ -71,16 +52,13 @@ const OfficeCard: React.FC<OfficeCardProps> = ({ office }) => {
                         className="w-[50px] h-[50px] object-cover rounded-[15px]"
                     />
                 </div>
-                <div className="flex-grow mx-2 text-left">
-                    <p className="text-base font-normal text-[#1E2335]">
+                <div className="flex-grow text-left">
+                    <p className="text-base font-medium text-[#1E2335]">
                         {office.name}
                     </p>
-                    <p className="text-sm font-light break-normal text-[#647382]">
-                        {office.merchants.length} кофе шоп
+                    <p className="text-xs font-light break-normal text-[#647382]">
+                        {office.merchants.length} зоогийн газар
                     </p>
-                </div>
-                <div className=" shrink-0">
-                    <span className="icon-Down-Arrow-1 text-[#647382]"></span>
                 </div>
             </div>
         </div>
