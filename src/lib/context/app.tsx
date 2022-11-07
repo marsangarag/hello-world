@@ -13,6 +13,7 @@ const initialState = {
     merchants: [],
     officeId: "",
     officeName: "",
+    products: [],
     numberOfStorey: 0,
     cartCount: 0,
     cartPrice: 0,
@@ -32,6 +33,7 @@ const reducer = (state: any, action: any) => {
 
             return newState;
         }
+
         case "merchantId": {
             const newState = { ...state, merchantId: action.merchantId };
             saveToLocal(newState);
@@ -87,6 +89,7 @@ const reducer = (state: any, action: any) => {
 
             return newState;
         }
+
         case "numberOfStorey": {
             const newState = {
                 ...state,
@@ -150,7 +153,6 @@ const reducer = (state: any, action: any) => {
         case "categoryId": {
             const newState = { ...state, categoryId: action.categoryId };
             saveToLocal(newState);
-
             return newState;
         }
         default:

@@ -51,7 +51,7 @@ const CoffeeShopCard: React.FC<CoffeeShopCardProps> = ({ merchant }) => {
                             Зоогийн газар хаалттай байна.
                             <br /> Та бусад зоогийн газраас сонголтоо хийнэ үү
                             <br />
-                            Зоогийн газар ажиллах цагийн хуваарь:
+                            Ажиллах цагийн хуваарь:
                             <br />
                             <p className="font-semibold">
                                 {startDate}-{endDate}
@@ -70,8 +70,8 @@ const CoffeeShopCard: React.FC<CoffeeShopCardProps> = ({ merchant }) => {
                         true,
                         "",
                         <div>
-                            Зоогийн газар дотоод ажилтай байгаа тул та түр
-                            хүлээнэ үү.
+                            Зоогийн газар дотоод ажилтай байгаа тул захиалга
+                            авахгүй
                         </div>,
                         true,
                         <div className="flex">

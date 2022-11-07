@@ -1,14 +1,7 @@
 import { useRouter } from "next/router";
-import { useContext } from "react";
-import Link from "next/link";
-
-import CoffeeShopCard from "components/coffee-shop/card";
-import LargeWhiteButton from "components/common/large-white-button";
-import { ModalContext } from "lib/context/modal";
 import { useAppState } from "lib/context/app";
-import { Merchant } from "lib/types/office.type";
 
-const BackButtonRoutes = [
+const NoBackButtonRoutes = [
     "/office/[officeId]",
     "/product-list/[merchantId]/[categoryId]",
     "/order-detail/[orderId]",
@@ -18,14 +11,12 @@ const BackButtonRoutes = [
 const Header = ({ routerPathName }: any) => {
     const router = useRouter();
     const [state]: any = useAppState();
-    const isBackButton = !BackButtonRoutes.includes(routerPathName);
+    const isBackButton = !NoBackButtonRoutes.includes(routerPathName);
     const { officeId, officeName } = state;
 
     const onBackButtonClick = () => {
-        console.log("sda");
+        router.push(`/office/${officeId}?tokenid=${router.query.tokenid}`);
     };
-
-    console.log(state);
 
     return (
         <header
@@ -80,21 +71,17 @@ const Header = ({ routerPathName }: any) => {
                                 />
                             </svg>
                         )}
-                        {routerPathName != "/" && (
+                        {routerPathName != "/" && officeId && officeName && (
                             <button
                                 type="button"
                                 className={`flex items-center justify-start px-2.5 py-[5px] gap-x-[5px] text-base text-white rounded-[10px] bg-main/20 border border-main/20`}
                                 onClick={() => {
-                                    if (
-                                        routerPathName === "/office/[officeId]"
-                                    ) {
-                                        router.push(
-                                            `/?tokenid=${router.query.tokenid}`
-                                        );
-                                        BackButtonRoutes.filter(
-                                            (routes) => routes !== "/"
-                                        );
-                                    }
+                                    router.push(
+                                        `/?tokenid=${router.query.tokenid}`
+                                    );
+                                    NoBackButtonRoutes.filter(
+                                        (route) => route !== "/"
+                                    );
                                 }}
                             >
                                 <svg

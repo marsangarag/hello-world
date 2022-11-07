@@ -16,100 +16,104 @@ const Footer = ({ routerPathName }: any) => {
     const { merchantId } = router.query;
 
     return (
-        <footer className="fixed z-30 bottom-0 w-full grid grid-cols-2 gap-4 h-[75px] p-5 text-black bg-white rounded-t-[20px] shadow-2xl shadow-black">
-            {!isCartFooter ? (
-                <>
-                    <Link
-                        href={`/menu/${state.merchantId}?tokenid=${router.query.tokenid}`}
-                    >
-                        <a>
-                            <div className="flex content-center justify-center">
+        <footer className="fixed z-30 bottom-0 w-full items-center grid grid-cols-2 gap-4  py-2.5 px-5 bg-white rounded-t-[20px] shadow-2xl shadow-black">
+            {
+                !isCartFooter ? (
+                    <>
+                        <Link
+                            href={`/office/${state.officeId}?tokenid=${router.query.tokenid}`}
+                        >
+                            <div>
                                 <FooterButton
                                     state={state}
                                     type="menu"
                                     isActive={
-                                        routerPathName == "/menu/[merchantId]"
+                                        routerPathName == "/office/[officeId]"
                                             ? true
                                             : false
                                     }
                                 />
                             </div>
-                        </a>
-                    </Link>
-                    <Link
-                        href={`/order-history?tokenid=${router.query.tokenid}`}
-                    >
-                        <a>
-                            <div className="flex content-center justify-center">
-                                <FooterButton
-                                    state={state}
-                                    type="order"
-                                    isActive={
-                                        routerPathName == "/order-history" ||
-                                        routerPathName ==
-                                            "/order-history/notification/review" ||
-                                        routerPathName ==
-                                            "/order-history/notification/jump"
-                                            ? true
-                                            : false
-                                    }
-                                />
-                            </div>
-                        </a>
-                    </Link>
-                </>
-            ) : (
-                <>
-                    {state.cartCount > 0 ? (
-                        <>
-                            <Link
-                                href={`/cart/${merchantId}?tokenid=${router.query.tokenid}`}
-                            >
-                                <a>
-                                    <div className="flex content-center justify-center">
-                                        <FooterCartButton state={state} />
-                                    </div>
-                                </a>
-                            </Link>
-                            <Link
-                                href={`/cart/${merchantId}?tokenid=${router.query.tokenid}`}
-                            >
-                                <a>
-                                    <div className="flex content-center justify-center">
-                                        <MediumButton text="Захиалах" />
-                                    </div>
-                                </a>
-                            </Link>
-                        </>
-                    ) : (
-                        <>
-                            {" "}
-                            <a
-                                onClick={() =>
-                                    toast(
-                                        "Та захиалах бүтээгдэхүүнээ сонгоно уу"
-                                    )
-                                }
-                            >
-                                <div className="flex content-center justify-center">
-                                    <FooterCartButton state={state} />
+                        </Link>
+                        <Link
+                            href={`/order-history?tokenid=${router.query.tokenid}`}
+                        >
+                            <a>
+                                <div>
+                                    <FooterButton
+                                        state={state}
+                                        type="order"
+                                        isActive={
+                                            routerPathName ==
+                                                "/order-history" ||
+                                            routerPathName ==
+                                                "/order-history/notification/review" ||
+                                            routerPathName ==
+                                                "/order-history/notification/jump"
+                                                ? true
+                                                : false
+                                        }
+                                    />
                                 </div>
                             </a>
-                            <a
-                                onClick={() =>
-                                    toast(
-                                        "Та захиалах бүтээгдэхүүнээ сонгоно уу"
-                                    )
-                                }
-                            >
-                                <div className="flex content-center justify-center">
-                                    <MediumButton text="Захиалах" />
-                                </div>
-                            </a>
-                        </>
-                    )}
-                </>
-            )}
+                        </Link>
+                    </>
+                ) : null
+                //  (
+                //     <>
+                //         {state.cartCount > 0 ? (
+                //             <>
+                //                 <Link
+                //                     href={`/cart/${merchantId}?tokenid=${router.query.tokenid}`}
+                //                 >
+                //                     <a>
+                //                         <div className="flex content-center justify-center">
+                //                             <FooterCartButton state={state} />
+                //                         </div>
+                //                     </a>
+                //                 </Link>
+                //                 <Link
+                //                     href={`/cart/${merchantId}?tokenid=${router.query.tokenid}`}
+                //                 >
+                //                     <a>
+                //                         <div className="flex content-center justify-center">
+                //                             <MediumButton text="Захиалах" />
+                //                         </div>
+                //                     </a>
+                //                 </Link>
+                //             </>
+                //         ) : (
+                //             <>
+                //                 {" "}
+                //                 <a
+                //                     onClick={() =>
+                //                         toast(
+                //                             "Та захиалах бүтээгдэхүүнээ сонгоно уу"
+                //                         )
+                //                     }
+                //                 >
+                //                     <div className="flex content-center justify-center">
+                //                         <FooterCartButton state={state} />
+                //                     </div>
+                //                 </a>
+                //                 <a
+                //                     onClick={() =>
+                //                         toast(
+                //                             "Та захиалах бүтээгдэхүүнээ сонгоно уу"
+                //                         )
+                //                     }
+                //                 >
+                //                     <div className="flex content-center justify-center">
+                //                         <MediumButton text="Захиалах" />
+                //                     </div>
+                //                 </a>
+                //             </>
+
+                //         )
+                //         }
+                //     </>
+                // )
+            }
         </footer>
     );
 };

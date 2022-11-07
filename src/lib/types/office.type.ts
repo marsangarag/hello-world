@@ -10,6 +10,7 @@ export default interface Office {
     distance: number;
     lat: string;
     lon: string;
+    products: any[];
     number_of_storey: number;
     pin_icon: string;
 }

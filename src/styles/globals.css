@@ -9,6 +9,7 @@
 
 #__next {
     min-height: 100vh;
+    @apply text-main;
 }
 
 #nprogress .bar {

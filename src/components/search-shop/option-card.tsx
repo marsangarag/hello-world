@@ -29,6 +29,7 @@ const OptionCard: React.FC<OptionCardProps> = ({ office }) => {
                     type: "officeName",
                     officeName: office.name,
                 });
+
                 dispatch({
                     type: "numberOfStorey",
                     numberOfStorey: office.number_of_storey,

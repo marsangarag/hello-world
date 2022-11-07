@@ -18,6 +18,15 @@ module.exports = {
             },
             fontSize: {
                 sm: ["14px", "16px"],
+                xs: ["12px", "14px"],
+            },
+            gap: {
+                1.25: "5px",
+                3.75: "15px",
+            },
+            borderRadius: {
+                "2.5xl": "20px",
+                md: "10px",
             },
         },
     },

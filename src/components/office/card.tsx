@@ -19,25 +19,24 @@ const OfficeCard: React.FC<OfficeCardProps> = ({ office }) => {
             id={office._id}
             className="p-[15px] mb-3 bg-white  cursor-pointer rounded-3xl "
             style={{ boxShadow: "0 -5px 10px 0 rgba(30, 35, 53, 0.05)" }}
-            onClick={() => {
-                dispatch({
-                    type: "merchants",
-                    merchants: office.merchants,
-                });
-                dispatch({ type: "officeId", officeId: office._id });
-                dispatch({ type: "officeName", officeName: office.name });
-                dispatch({
-                    type: "numberOfStorey",
-                    numberOfStorey: office.number_of_storey,
-                });
-                dispatch({
-                    type: "notThroughLink",
-                    notThroughLink: true,
-                });
-            }}
         >
             <div
                 onClick={() => {
+                    dispatch({
+                        type: "merchants",
+                        merchants: office.merchants,
+                    });
+                    dispatch({ type: "officeId", officeId: office._id });
+                    dispatch({ type: "officeName", officeName: office.name });
+
+                    dispatch({
+                        type: "numberOfStorey",
+                        numberOfStorey: office.number_of_storey,
+                    });
+                    dispatch({
+                        type: "notThroughLink",
+                        notThroughLink: true,
+                    });
                     router.push(
                         `/office/${office._id}?tokenid=${router.query.tokenid}`
                     );
