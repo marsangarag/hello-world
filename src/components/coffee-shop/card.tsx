@@ -48,13 +48,12 @@ const CoffeeShopCard: React.FC<CoffeeShopCardProps> = ({ merchant }) => {
                         true,
                         "",
                         <div>
-                            Кофе шоп хаалттай байна.
-                            <br /> Та бусад кофе шопоос сонголтоо хийнэ үү
+                            Зоогийн газар хаалттай байна.
+                            <br /> Та бусад зоогийн газраас сонголтоо хийнэ үү
                             <br />
-                            Кофе шопын ажиллах цагийн хуваарь:
+                            Зоогийн газар ажиллах цагийн хуваарь:
                             <br />
                             <p className="font-semibold">
-                                {" "}
                                 {startDate}-{endDate}
                             </p>
                         </div>,
@@ -71,8 +70,8 @@ const CoffeeShopCard: React.FC<CoffeeShopCardProps> = ({ merchant }) => {
                         true,
                         "",
                         <div>
-                            Кофе шоп дотоод ажилтай байгаа тул та түр хүлээнэ
-                            үү.
+                            Зоогийн газар дотоод ажилтай байгаа тул та түр
+                            хүлээнэ үү.
                         </div>,
                         true,
                         <div className="flex">
@@ -83,14 +82,6 @@ const CoffeeShopCard: React.FC<CoffeeShopCardProps> = ({ merchant }) => {
                         </div>
                     );
                 } else {
-                    dispatch({
-                        type: "themeColor",
-                        brandColor: merchant.brand_color,
-                    });
-                    dispatch({
-                        type: "logo",
-                        logo: merchant.logo,
-                    });
                     dispatch({
                         type: "merchantId",
                         merchantId: merchant._id,

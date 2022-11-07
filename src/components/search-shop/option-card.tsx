@@ -5,6 +5,7 @@ import LargeWhiteButton from "components/common/large-white-button";
 import { ModalContext } from "lib/context/modal";
 import Office, { Merchant } from "lib/types/office.type";
 import { useAppState } from "lib/context/app";
+import { useRouter } from "next/router";
 
 interface OptionCardProps {
     office: Office;
@@ -13,6 +14,7 @@ interface OptionCardProps {
 const OptionCard: React.FC<OptionCardProps> = ({ office }) => {
     const { handleModal }: any = useContext(ModalContext);
     const [state, dispatch]: any = useAppState();
+    const router = useRouter();
 
     return (
         <button
@@ -31,38 +33,14 @@ const OptionCard: React.FC<OptionCardProps> = ({ office }) => {
                     type: "numberOfStorey",
                     numberOfStorey: office.number_of_storey,
                 });
-
-                handleModal(
-                    true,
-                    `"${office.name}" кофе шопууд`,
-                    office.merchants.length > 0 ? (
-                        <div className="flex flex-wrap gap-4 overflow-auto scrollbar-hide">
-                            {" "}
-                            {office.merchants.map(
-                                (merchant: Merchant, index: number) => (
-                                    <CoffeeShopCard
-                                        key={index}
-                                        merchant={merchant}
-                                    />
-                                )
-                            )}
-                        </div>
-                    ) : (
-                        "Уучлаарай, кофе шоп олдсонгүй"
-                    ),
-                    false,
-                    <div className="flex">
-                        <LargeWhiteButton
-                            text="Буцах"
-                            onClick={() => handleModal()}
-                        />
-                    </div>
+                router.push(
+                    `/office/${office._id}?tokenid=${router.query.tokenid}`
                 );
             }}
         >
             <p className="mr-1 text-sm text-normal">{office.name}</p>
             <p className="text-sm font-light">
-                ( {office.merchants.length} кофе шоп )
+                ( {office.merchants.length} зоогийн газар )
             </p>
         </button>
     );

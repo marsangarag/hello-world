@@ -9,7 +9,6 @@ import { useAppState } from "lib/context/app";
 import { Merchant } from "lib/types/office.type";
 
 const BackButtonRoutes = [
-    "/",
     "/office/[officeId]",
     "/product-list/[merchantId]/[categoryId]",
     "/order-detail/[orderId]",
@@ -19,7 +18,14 @@ const BackButtonRoutes = [
 const Header = ({ routerPathName }: any) => {
     const router = useRouter();
     const [state]: any = useAppState();
-    const isBackButton = BackButtonRoutes.includes(routerPathName);
+    const isBackButton = !BackButtonRoutes.includes(routerPathName);
+    const { officeId, officeName } = state;
+
+    const onBackButtonClick = () => {
+        console.log("sda");
+    };
+
+    console.log(state);
 
     return (
         <header
@@ -28,79 +34,68 @@ const Header = ({ routerPathName }: any) => {
             <div className="w-full h-[50px] px-5 py-2.5 flex justify-start items-center gap-x-2.5">
                 {
                     <>
-                        {!isBackButton && (
-                            <Link
-                                href={
-                                    routerPathName === "/"
-                                        ? `/office/${state.officeId}?tokenid=${router.query.tokenid}`
-                                        : `/?tokenid=${router.query.tokenid}`
-                                }
+                        {isBackButton && officeId && officeName && (
+                            <svg
+                                onClick={onBackButtonClick}
+                                width="30"
+                                height="30"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
                             >
-                                <svg
+                                <rect
                                     width="30"
                                     height="30"
-                                    viewBox="0 0 30 30"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <rect
-                                        width="30"
-                                        height="30"
-                                        rx="10"
-                                        fill="#1E2335"
-                                        fillOpacity="0.2"
-                                    />
-                                    <rect
-                                        x="0.25"
-                                        y="0.25"
-                                        width="29.5"
-                                        height="29.5"
-                                        rx="9.75"
-                                        stroke="#1E2335"
-                                        strokeOpacity="0.2"
-                                        strokeWidth="0.5"
-                                    />
-                                    <path
-                                        d="M6.5 15L13.32 8"
-                                        stroke="white"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                    <path
-                                        d="M13.32 22L6.5 15"
-                                        stroke="white"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                    <path
-                                        d="M6.5 15H23.5"
-                                        stroke="white"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </Link>
+                                    rx="10"
+                                    fill="#1E2335"
+                                    fillOpacity="0.2"
+                                />
+                                <rect
+                                    x="0.25"
+                                    y="0.25"
+                                    width="29.5"
+                                    height="29.5"
+                                    rx="9.75"
+                                    stroke="#1E2335"
+                                    strokeOpacity="0.2"
+                                    strokeWidth="0.5"
+                                />
+                                <path
+                                    d="M6.5 15L13.32 8"
+                                    stroke="white"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                                <path
+                                    d="M13.32 22L6.5 15"
+                                    stroke="white"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                                <path
+                                    d="M6.5 15H23.5"
+                                    stroke="white"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
+                            </svg>
                         )}
                         {routerPathName != "/" && (
                             <button
                                 type="button"
                                 className={`flex items-center justify-start px-2.5 py-[5px] gap-x-[5px] text-base text-white rounded-[10px] bg-main/20 border border-main/20`}
-                                onClick={
-                                    () => {
-                                        if (
-                                            routerPathName ===
-                                            "/office/[officeId]"
-                                        ) {
-                                            router.push(
-                                                `/?tokenid=${router.query.tokenid}`
-                                            );
-                                            BackButtonRoutes.filter(
-                                                (routes) => routes !== "/"
-                                            );
-                                        }
+                                onClick={() => {
+                                    if (
+                                        routerPathName === "/office/[officeId]"
+                                    ) {
+                                        router.push(
+                                            `/?tokenid=${router.query.tokenid}`
+                                        );
+                                        BackButtonRoutes.filter(
+                                            (routes) => routes !== "/"
+                                        );
                                     }
-                                    // state.merchants &&
-                                }
+                                }}
                             >
                                 <svg
                                     width="18"
@@ -123,7 +118,7 @@ const Header = ({ routerPathName }: any) => {
                                     />
                                 </svg>
                                 <div className="font-light text-sm">
-                                    {state.officeName}
+                                    {officeName}
                                 </div>
                             </button>
                         )}

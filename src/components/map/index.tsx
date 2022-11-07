@@ -11,6 +11,7 @@ import { useAppState } from "lib/context/app";
 import { ModalContext } from "lib/context/modal";
 import CoffeeShopCard from "components/coffee-shop/card";
 import LargeWhiteButton from "components/common/large-white-button";
+import { useRouter } from "next/router";
 
 const containerStyle = {
     width: "100%",
@@ -98,6 +99,8 @@ const Map: React.FC<MapProps & GeolocatedProps> = ({
         onSearchByMap(map.getCenter().lat(), map.getCenter().lng());
     };
 
+    const router = useRouter();
+
     return isLoaded ? (
         <GoogleMap
             mapContainerStyle={containerStyle}
@@ -139,8 +142,8 @@ const Map: React.FC<MapProps & GeolocatedProps> = ({
                         icon={{
                             // url: office.pin_icon,
                             url: "/images/Pin.svg",
-                            scaledSize: new google.maps.Size(24,34),
-                            anchor: new google.maps.Point(24,34),
+                            scaledSize: new google.maps.Size(24, 34),
+                            anchor: new google.maps.Point(24, 34),
                         }}
                         onClick={() => (
                             setCenter({
@@ -173,33 +176,8 @@ const Map: React.FC<MapProps & GeolocatedProps> = ({
                                 type: "numberOfStorey",
                                 numberOfStorey: office.number_of_storey,
                             }),
-                            handleModal(
-                                true,
-                                `"${office.name}" кофе шопууд`,
-                                office.merchants.length > 0 ? (
-                                    <div className="flex flex-wrap gap-4 overflow-auto scrollbar-hide">
-                                        {office.merchants.map(
-                                            (
-                                                merchant: Merchant,
-                                                index: number
-                                            ) => (
-                                                <CoffeeShopCard
-                                                    key={index}
-                                                    merchant={merchant}
-                                                />
-                                            )
-                                        )}
-                                    </div>
-                                ) : (
-                                    "Уучлаарай, кофе шоп олдсонгүй"
-                                ),
-                                false,
-                                <div className="flex">
-                                    <LargeWhiteButton
-                                        text="Буцах"
-                                        onClick={() => handleModal()}
-                                    />
-                                </div>
+                            router.push(
+                                `/office/${office._id}?tokenid=${router.query.tokenid}`
                             )
                         )}
                     />

@@ -30,7 +30,6 @@ const OfficeCard: React.FC<OfficeCardProps> = ({ office }) => {
                     type: "numberOfStorey",
                     numberOfStorey: office.number_of_storey,
                 });
-
                 dispatch({
                     type: "notThroughLink",
                     notThroughLink: true,
