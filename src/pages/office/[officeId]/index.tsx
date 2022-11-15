@@ -1,3 +1,4 @@
+import CategoryTitle from "components/common/category-title";
 import CenteredSpin from "components/common/centered-spin";
 import { FoodSearchInput } from "components/office/office-search";
 import { CategoryCard } from "components/product-category/card";
@@ -51,6 +52,9 @@ export default function Office() {
                             />
                         );
                     })}
+                </div>
+                <div className="flex justify-between items-center">
+                    <CategoryTitle title="Бүгд" />
                 </div>
             </div>
         </>

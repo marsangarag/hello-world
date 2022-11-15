@@ -7,7 +7,7 @@ import MediumButton from "components/common/medium-button";
 import { useAppState } from "lib/context/app";
 import { toast } from "lib/utils/helpers";
 
-const CartFooterRoutes = ["/product-list/[merchantId]/[categoryId]"];
+const CartFooterRoutes = ["/office/[officeId]"];
 
 const Footer = ({ routerPathName }: any) => {
     const isCartFooter = CartFooterRoutes.includes(routerPathName);
@@ -18,7 +18,7 @@ const Footer = ({ routerPathName }: any) => {
     return (
         <footer className="fixed z-30 bottom-0 w-full items-center grid grid-cols-2 gap-4  py-2.5 px-5 bg-white rounded-t-[20px] shadow-2xl shadow-black">
             {
-                !isCartFooter ? (
+                isCartFooter ? (
                     <>
                         <Link
                             href={`/office/${state.officeId}?tokenid=${router.query.tokenid}`}

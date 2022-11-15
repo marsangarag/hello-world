@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export function CategoryCard({
     category,
@@ -6,8 +8,16 @@ export function CategoryCard({
     category: { title: string; img: string };
 }) {
     const { title, img } = category;
+    const router = useRouter();
+    const onCategoryCardClick = async () => {
+        router.push(`/office/${router.query.officeId}/category/${title}`);
+    };
     return (
-        <div className="flex flex-col items-center gap-y-1.25">
+        // <Link href={`/office/${router.query.officeId}/category/${title}`}>
+        <div
+            onClick={onCategoryCardClick}
+            className="flex flex-col items-center gap-y-1.25"
+        >
             <Image
                 src={`/images/${img}`}
                 alt={img}
@@ -17,5 +27,6 @@ export function CategoryCard({
             />
             <div className="text-xs">{title}</div>
         </div>
+        // </Link>
     );
 }
