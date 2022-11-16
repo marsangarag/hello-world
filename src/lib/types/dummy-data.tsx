@@ -55,3 +55,26 @@ export const recommendedDummyData = [
         avgReview: "98",
     },
 ];
+
+export const dummyProducts = [
+    { img: "placeholder.png", title: "Гуляш" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+    { img: "placeholder.png", title: "Гөлөг" },
+];
+
+export const productFilters = ["Үнэлгээ", "Үнэ", "Хүргэлт", "Урамшуулал"];

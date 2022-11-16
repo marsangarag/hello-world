@@ -1,7 +1,11 @@
 import { ClockIcon } from "components/icons";
 import { Merchant } from "lib/types/office.type";
 
-export default function WideMerchantCard({ merchant }: { merchant: Merchant }) {
+export default function GreadientMerchantCard({
+    merchant,
+}: {
+    merchant: Merchant;
+}) {
     return (
         <div className="rounded-2xl overflow-hidden shadow-merchant-card relative">
             <img

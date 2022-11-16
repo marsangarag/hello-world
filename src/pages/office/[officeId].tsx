@@ -1,5 +1,5 @@
 import Recommended from "components/cards/recommended-card";
-import WideMerchantCard from "components/cards/wide-merchant-card";
+import GradientMerchantCard from "components/cards/gradient-merchant-card";
 import CategoryTitle from "components/common/category-title";
 import CenteredSpin from "components/common/centered-spin";
 import { FilterIcon } from "components/icons";
@@ -65,7 +65,7 @@ export default function Office() {
                     <div className="flex flex-col gap-y-2.5">
                         {merchants?.slice(0, 2).map((merchant: Merchant) => {
                             return (
-                                <WideMerchantCard
+                                <GradientMerchantCard
                                     key={merchant._id}
                                     merchant={merchant}
                                 />
@@ -80,7 +80,7 @@ export default function Office() {
                         </div>
                         {merchants?.slice(3).map((merchant: Merchant) => {
                             return (
-                                <WideMerchantCard
+                                <GradientMerchantCard
                                     key={merchant._id}
                                     merchant={merchant}
                                 />
