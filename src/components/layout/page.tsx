@@ -15,8 +15,8 @@ const Page = ({ router, children }: any) => {
             <main
                 className={`flex-initial overflow-auto scrollbar-hide rounded-t-[] -mt-[25px] h-[calc(-125px+100vh)] bg-inherit ${
                     !isNonFooter
-                        ? "h-[calc(-125px+100vh)]"
-                        : "h-[calc(-53px+100vh)]"
+                        ? "h-[calc(-109px+100vh)]"
+                        : "h-[calc(-59px+100vh)]"
                 } page-top-border`}
                 style={{
                     WebkitBorderTopLeftRadius: "25px",

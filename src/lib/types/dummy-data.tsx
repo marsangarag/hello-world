@@ -1,0 +1,57 @@
+export const categoryDummyData = [
+    { title: "Монгол", img: "placeholder.png" },
+    { title: "Ланч сэт", img: "placeholder.png" },
+    { title: "Солонгос", img: "placeholder.png" },
+    { title: "Япон", img: "placeholder.png" },
+    { title: "Хятад", img: "placeholder.png" },
+    { title: "Шөл", img: "placeholder.png" },
+    { title: "Хуурга", img: "placeholder.png" },
+    { title: "Ширхэгийн", img: "placeholder.png" },
+    { title: "Тахиа", img: "placeholder.png" },
+    { title: "Салад", img: "placeholder.png" },
+    { title: "Бургер", img: "placeholder.png" },
+    { title: "Бусад", img: "placeholder.png" },
+];
+
+export const recommendedDummyData = [
+    {
+        img: "placeholder.png",
+        name: "Sushi gourment",
+        oldPrice: "30000",
+        newPrice: "29000",
+        place: "Stockholm sushi",
+        avgReview: "98",
+    },
+    {
+        img: "placeholder.png",
+        name: "Sushi gourment",
+        oldPrice: "30000",
+        newPrice: "29000",
+        place: "Stockholm sushi",
+        avgReview: "98",
+    },
+    {
+        img: "placeholder.png",
+        name: "Sushi gourment",
+        oldPrice: "30000",
+        newPrice: "29000",
+        place: "Stockholm sushi",
+        avgReview: "98",
+    },
+    {
+        img: "placeholder.png",
+        name: "Sushi gourment",
+        oldPrice: "30000",
+        newPrice: "29000",
+        place: "Stockholm sushi",
+        avgReview: "98",
+    },
+    {
+        img: "placeholder.png",
+        name: "Sushi gourment",
+        oldPrice: "30000",
+        newPrice: "29000",
+        place: "Stockholm sushi",
+        avgReview: "98",
+    },
+];

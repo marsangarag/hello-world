@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export function CategoryCard({
+export default function CategoryCard({
     category,
 }: {
     category: { title: string; img: string };
@@ -10,7 +10,7 @@ export function CategoryCard({
     const { title, img } = category;
     const router = useRouter();
     const onCategoryCardClick = async () => {
-        router.push(`/office/${router.query.officeId}/category/${title}`);
+        router.push(`/category/${title}`);
     };
     return (
         // <Link href={`/office/${router.query.officeId}/category/${title}`}>

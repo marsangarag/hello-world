@@ -34,57 +34,58 @@
     transition: height 500ms;
 }
 
-.Toastify__toast-theme--dark{
-background: rgb(30, 35, 53, 0.5);
-border-radius: 10px;
-height: fit-content;
-
+.Toastify__toast-theme--dark {
+    background: rgb(30, 35, 53, 0.5);
+    border-radius: 10px;
+    height: fit-content;
 }
 
-.Toastify__close-button{
-    display:none
+.Toastify__close-button {
+    display: none;
 }
 
-.Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-right {
-max-width: 80%;
-width: fit-content;
+.Toastify__toast-container--bottom-center,
+.Toastify__toast-container--bottom-left,
+.Toastify__toast-container--bottom-right {
+    max-width: 80%;
+    width: fit-content;
 }
 
-@media only screen and (max-width: 480px)
-{
-.Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-right {
-    bottom: 35px;
-  transform: translateX(30%);
-
+@media only screen and (max-width: 480px) {
+    .Toastify__toast-container--bottom-center,
+    .Toastify__toast-container--bottom-left,
+    .Toastify__toast-container--bottom-right {
+        bottom: 35px;
+        transform: translateX(30%);
+    }
 }
-}
-@media only screen and (max-width: 440px)
-{
-.Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-right {
-    bottom: 35px;
-  transform: translateX(20%);
-
-}
-}
-
-@media only screen and (max-width: 380px)
-{
-.Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-right {
-    bottom: 35px;
-  transform: translateX(15%);
-
-}
+@media only screen and (max-width: 440px) {
+    .Toastify__toast-container--bottom-center,
+    .Toastify__toast-container--bottom-left,
+    .Toastify__toast-container--bottom-right {
+        bottom: 35px;
+        transform: translateX(20%);
+    }
 }
 
-.Toastify__toast-body{
+@media only screen and (max-width: 380px) {
+    .Toastify__toast-container--bottom-center,
+    .Toastify__toast-container--bottom-left,
+    .Toastify__toast-container--bottom-right {
+        bottom: 35px;
+        transform: translateX(15%);
+    }
+}
+
+.Toastify__toast-body {
     padding-top: 3px;
     padding-bottom: 3px;
     margin-top: 0px;
     margin-bottom: 0px;
-height: fit-content;
+    height: fit-content;
 }
 
-.Toastify__toast{
+.Toastify__toast {
     height: fit-content;
     min-height: 38px;
 }
@@ -93,10 +94,13 @@ height: fit-content;
     height: 5px;
     width: 40px;
     background-color: white;
-    border-radius:5px;
+    border-radius: 5px;
     margin-left: auto;
     margin-right: auto;
     margin-top: -35px;
     margin-bottom: 35px;
+}
 
-  }
+img {
+    object-fit: cover !important;
+}
