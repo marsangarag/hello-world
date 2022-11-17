@@ -109,25 +109,29 @@ img {
 .swiper-pagination {
     @apply relative flex gap-x-1.25 items-center justify-center !important;
 }
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
     @apply bottom-0 !important;
 }
 .swiper-pagination-bullet {
     @apply w-1.5 h-1.5 m-0 rounded-[3px] bg-gray !important;
 }
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
     @apply rounded-[2.5px] bg-[#FFD500] w-[15px] h-[5px] !important;
 }
-#gradient-border::before {
+.gradient-border::before {
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 10px; 
-    border: 2px solid transparent; 
-    background: linear-gradient(to right , #FFBE78, #FF7A1F) border-box; /*3*/
-    -webkit-mask:
-       linear-gradient(#fff 0 0) padding-box, 
-       linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; 
-            mask-composite: exclude; 
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: linear-gradient(to right, #ffbe78, #ff7a1f) border-box; /*3*/
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 2px rgba(30, 35, 53, 0.5);
 }

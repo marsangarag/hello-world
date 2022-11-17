@@ -3,21 +3,19 @@ import { withRouter } from "next/router";
 import Header from "./header";
 import Footer from "./footer";
 
-const NonFooterRoutes = ["/", "/cart/[merchantId]", "/order-detail/[orderId]"];
+const CartFooterRoutes = ["/office/[officeId]"];
 
 const Page = ({ router, children }: any) => {
-    const isNonFooter = NonFooterRoutes.includes(router.pathname);
+    const footerPage = CartFooterRoutes.includes(router.pathname);
 
     return (
-        <div className="flex flex-col min-h-screen bg-[#f5f5fa] ">
+        <div className="flex flex-col h-screen bg-[#f5f5fa]">
             <Header routerPathName={router.pathname} />
 
             <main
-                className={`flex-initial overflow-auto scrollbar-hide rounded-t-[] -mt-[25px] h-[calc(-125px+100vh)] bg-inherit ${
-                    !isNonFooter
-                        ? "h-[calc(-109px+100vh)]"
-                        : "h-[calc(-59px+100vh)]"
-                } page-top-border`}
+                className={`flex-initial overflow-y-scroll scrollbar-hide ${
+                    footerPage ? "pb-[59px]" : ""
+                } -mt-[25px] bg-inherit h-full page-top-border`}
                 style={{
                     WebkitBorderTopLeftRadius: "25px",
                     WebkitBorderTopRightRadius: "25px",
@@ -27,7 +25,7 @@ const Page = ({ router, children }: any) => {
                 {children}
             </main>
 
-            {!isNonFooter && <Footer routerPathName={router.pathname} />}
+            {footerPage && <Footer routerPathName={router.pathname} />}
         </div>
     );
 };

@@ -1,13 +1,21 @@
 import { ClockIcon } from "components/icons";
 import { Merchant } from "lib/types/office.type";
+import { useRouter } from "next/router";
 
 export default function GreadientMerchantCard({
     merchant,
 }: {
     merchant: Merchant;
 }) {
+    const router = useRouter();
+    const onMerchantClick = () => {
+        router.push(`/merchant/${merchant._id}`);
+    };
     return (
-        <div className="rounded-2xl overflow-hidden shadow-merchant-card relative">
+        <div
+            onClick={onMerchantClick}
+            className="rounded-2xl overflow-hidden shadow-delivery relative"
+        >
             <img
                 src={merchant.logo}
                 className="h-40 min-w-full"

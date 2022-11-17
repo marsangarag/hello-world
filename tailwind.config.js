@@ -21,6 +21,7 @@ module.exports = {
                 sm: ["14px", "16px"],
                 xs: ["12px", "14px"],
                 smaller: ["10px", "12px"],
+                base: ["16px", "19px"],
             },
             gap: {
                 1.25: "5px",
@@ -35,7 +36,7 @@ module.exports = {
                 md: "10px",
             },
             boxShadow: {
-                "merchant-card": "5px 5px 10px 0px rgba(30, 35, 53, 0.05)",
+                delivery: "5px 5px 10px 0px rgba(30, 35, 53, 0.05)",
             },
             spacing: {
                 3.75: "15px",

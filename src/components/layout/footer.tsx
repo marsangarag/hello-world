@@ -15,50 +15,48 @@ const Footer = ({ routerPathName }: any) => {
     const router = useRouter();
     const { merchantId } = router.query;
 
-    return (
-        <footer className="fixed z-30 bottom-0 w-full items-center grid grid-cols-2 gap-4  py-2.5 px-5 bg-white rounded-t-[20px] shadow-2xl shadow-black">
+    return isCartFooter ? (
+        <footer className="fixed z-30 bottom-0 w-full items-center grid grid-cols-2 gap-4 py-2.5 px-5 bg-white rounded-t-[20px] shadow-2xl shadow-black">
             {
-                isCartFooter ? (
-                    <>
-                        <Link
-                            href={`/office/${state.officeId}?tokenid=${router.query.tokenid}`}
-                        >
+                <>
+                    <Link
+                        href={`/office/${state.officeId}?tokenid=${router.query.tokenid}`}
+                    >
+                        <div>
+                            <FooterButton
+                                state={state}
+                                type="menu"
+                                isActive={
+                                    routerPathName == "/office/[officeId]"
+                                        ? true
+                                        : false
+                                }
+                            />
+                        </div>
+                    </Link>
+                    <Link
+                        href={`/order-history?tokenid=${router.query.tokenid}`}
+                    >
+                        <a>
                             <div>
                                 <FooterButton
                                     state={state}
-                                    type="menu"
+                                    type="order"
                                     isActive={
-                                        routerPathName == "/office/[officeId]"
+                                        routerPathName == "/order-history" ||
+                                        routerPathName ==
+                                            "/order-history/notification/review" ||
+                                        routerPathName ==
+                                            "/order-history/notification/jump"
                                             ? true
                                             : false
                                     }
                                 />
                             </div>
-                        </Link>
-                        <Link
-                            href={`/order-history?tokenid=${router.query.tokenid}`}
-                        >
-                            <a>
-                                <div>
-                                    <FooterButton
-                                        state={state}
-                                        type="order"
-                                        isActive={
-                                            routerPathName ==
-                                                "/order-history" ||
-                                            routerPathName ==
-                                                "/order-history/notification/review" ||
-                                            routerPathName ==
-                                                "/order-history/notification/jump"
-                                                ? true
-                                                : false
-                                        }
-                                    />
-                                </div>
-                            </a>
-                        </Link>
-                    </>
-                ) : null
+                        </a>
+                    </Link>
+                </>
+
                 //  (
                 //     <>
                 //         {state.cartCount > 0 ? (
@@ -115,7 +113,7 @@ const Footer = ({ routerPathName }: any) => {
                 // )
             }
         </footer>
-    );
+    ) : null;
 };
 
 export default Footer;

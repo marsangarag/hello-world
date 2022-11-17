@@ -13,13 +13,13 @@ export default function ProductTab({
             {productFilters?.map((filter) => {
                 return (
                     <div
+                        key={filter}
                         onClick={() => setActiveTab(filter)}
-                        id={
-                            activeTab === filter ? "gradient-border" : undefined
-                        }
                         className={
-                            "bg-white relative bg-clip-padding text-sm rounded-md z-10 shadow-merchant-card p-2.5 " +
-                            (activeTab === filter ? "text-main " : "text-gray")
+                            "bg-white relative min-w-[60px] text-center bg-clip-padding text-sm rounded-md z-10 shadow-delivery p-2.5 " +
+                            (activeTab === filter
+                                ? "text-main gradient-border"
+                                : "text-gray")
                         }
                     >
                         {filter}
