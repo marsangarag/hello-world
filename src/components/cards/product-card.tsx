@@ -74,12 +74,27 @@ export default function ProductCard({
                         )}
                     </div>
                     <div className="py-3.75 pr-5 flex justify-between w-full">
-                        <div className="flex flex-col justify-between items-start">
+                        <div
+                            className={
+                                "flex flex-col items-start " +
+                                (page
+                                    ? "justify-center gap-y-1.25"
+                                    : "justify-between")
+                            }
+                        >
                             <div className="flex flex-col gap-y-1.5">
                                 {!page && (
                                     <div className="font-medium">{place}</div>
                                 )}
-                                <div className="text-xs">{title}</div>
+                                <div
+                                    className={
+                                        page
+                                            ? "font-medium text-sm"
+                                            : "text-xs "
+                                    }
+                                >
+                                    {title}
+                                </div>
                             </div>
                             <div className="flex gap-x-1 items-center">
                                 {oldPrice ? (

@@ -1,10 +1,14 @@
-import MerchantCard from "components/cards/product-card";
+import ProductCard from "components/cards/product-card";
 import CategoryProduct from "components/category/product-list";
 import ProductTab from "components/category/product-tab";
 import CategoryTab from "components/category/tab";
 import { Oops } from "components/icons";
 import { useAppState } from "lib/context/app";
-import { dummyProducts, productFilters } from "lib/types/dummy-data";
+import {
+    categoryDummyData,
+    dummyProducts,
+    productFilters,
+} from "lib/types/dummy-data";
 import { Merchant } from "lib/types/office.type";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -21,12 +25,12 @@ export default function Category() {
     return (
         <div className="flex flex-col gap-y-2.5 w-full h-[calc(100vh-50px)] overflow-hidden">
             <div className="bg-white rounded-2.5xl shadow-delivery flex flex-col gap-y-5 py-5">
-                <div className="px-5">
-                    <CategoryTab
-                        activeTab={activeTab}
-                        setActiveTab={setActiveTab}
-                    />
-                </div>
+                <CategoryTab
+                    tabs={categoryDummyData}
+                    activeTab={activeTab}
+                    setActiveTab={setActiveTab}
+                />
+
                 <CategoryProduct />
             </div>
             <ProductTab activeTab={productTab} setActiveTab={setProductTab} />
@@ -39,7 +43,7 @@ export default function Category() {
                     >
                         {dummyProducts?.map((product) => {
                             return (
-                                <MerchantCard
+                                <ProductCard
                                     key={product.title}
                                     product={product}
                                 />

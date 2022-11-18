@@ -4,12 +4,16 @@ import { useRouter } from "next/router";
 
 export default function GreadientMerchantCard({
     merchant,
+    page = false,
 }: {
     merchant: Merchant;
+    page?: boolean;
 }) {
     const router = useRouter();
     const onMerchantClick = () => {
-        router.push(`/merchant/${merchant._id}`);
+        if (!page) {
+            router.push(`/merchant/${merchant._id}`);
+        }
     };
     return (
         <div
