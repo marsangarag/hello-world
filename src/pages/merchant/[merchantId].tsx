@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Accordion } from "react-accessible-accordion";
 
-export default function MerchantPage() {
+export default function MerchantProductPage() {
     const router = useRouter();
     const merchantId = router.query.merchantId;
     const [state]: any = useAppState();
@@ -45,7 +45,7 @@ export default function MerchantPage() {
                             merchant={true}
                         />
                     </div>
-                    <div className="relative w-full h-full overflow-y-scroll scrollbar-hide -mt-2.5 pt-2.5">
+                    <div className="relative w-full h-full overflow-y-scroll scrollbar-hide  -my-5 py-5">
                         <Accordion
                             allowZeroExpanded
                             className="flex flex-col gap-y-2.5"
