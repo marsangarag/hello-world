@@ -1,38 +1,21 @@
-import { createContext } from "react";
-
-import useModal from "lib/hooks/useModal";
 import Modal from "components/common/modal";
 
-const ModalContext = createContext(null);
-const { Provider }: any = ModalContext;
+import { createContext, useContext, useState } from "react";
 
-const ModalProvider = ({ children }: any) => {
-    const {
-        visible,
-        modalTitle,
-        modalContent,
-        isCenter,
-        footer,
-        banner,
-        handleModal,
-    } = useModal();
+export const modalContext = createContext<any>([]);
+
+export function useModal() {
+    return useContext(modalContext);
+}
+
+export function ModalProvider({ children }: any) {
+    const [show, setShow] = useState<boolean>(false);
+    const [content, setContent] = useState<any>();
 
     return (
-        <Provider
-            value={{
-                visible,
-                modalTitle,
-                modalContent,
-                isCenter,
-                footer,
-                banner,
-                handleModal,
-            }}
-        >
+        <modalContext.Provider value={[show, setShow, content, setContent]}>
             <Modal />
             {children}
-        </Provider>
+        </modalContext.Provider>
     );
-};
-
-export { ModalContext, ModalProvider };
+}
