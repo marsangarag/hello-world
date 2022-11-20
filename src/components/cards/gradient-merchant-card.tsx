@@ -1,9 +1,27 @@
-import { ClockIcon } from "components/icons";
+import { ClockIcon, LongArrow } from "components/icons";
 import { Merchant } from "lib/types/office.type";
+import { useRouter } from "next/router";
 
-export default function WideMerchantCard({ merchant }: { merchant: Merchant }) {
+export default function GreadientMerchantCard({
+    merchant,
+    page = false,
+}: {
+    merchant: Merchant;
+    page?: boolean;
+}) {
+    const router = useRouter();
+    const onMerchantClick = () => {
+        if (!page) {
+            router.push(`/merchant/${merchant._id}`);
+        } else {
+            router.push(`/merchant/details/${merchant._id}`);
+        }
+    };
     return (
-        <div className="rounded-2xl overflow-hidden shadow-merchant-card relative">
+        <div
+            onClick={onMerchantClick}
+            className="rounded-2xl min-h-[160px] overflow-hidden shadow-delivery relative"
+        >
             <img
                 src={merchant.logo}
                 className="h-40 min-w-full"
@@ -21,6 +39,14 @@ export default function WideMerchantCard({ merchant }: { merchant: Merchant }) {
                 {merchant.temporary_closed && "Дотоод ажилтай"}
                 {!merchant?.is_open && "Хаалттай"}
             </div>
+            {page && (
+                <div className="absolute right-3.75 bottom-3.75 flex gap-x-2.5 justify-end items-center">
+                    <div className="text-xs font-light text-white">
+                        Дэлгэрэнгүй
+                    </div>
+                    <LongArrow />
+                </div>
+            )}
         </div>
     );
 }
