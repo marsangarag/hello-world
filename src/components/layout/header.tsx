@@ -15,7 +15,7 @@ const Header = ({ routerPathName }: any) => {
     const { officeId, officeName } = state;
 
     const onBackButtonClick = () => {
-        router.push(`/office/${officeId}?tokenid=${router.query.tokenid}`);
+        router.back();
     };
 
     return (
@@ -74,7 +74,7 @@ const Header = ({ routerPathName }: any) => {
                         {routerPathName != "/" && officeId && officeName && (
                             <button
                                 type="button"
-                                className={`flex items-center justify-start px-2.5 py-[5px] gap-x-[5px] text-base text-white rounded-[10px] bg-main/20 border border-main/20`}
+                                className={`flex items-center justify-start px-2.5 py-[5px] gap-x-[5px] h-[30px] text-base text-white rounded-[10px] bg-main/20 border-[0.5px] border-main/20`}
                                 onClick={() => {
                                     router.push(
                                         `/?tokenid=${router.query.tokenid}`

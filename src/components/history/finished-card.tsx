@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useRouter } from "next/router";
 
 import Link from "next/link";
-import { ModalContext } from "lib/context/modal";
+// import { ModalContext } from "lib/context/modal";
 import { OrderItem, Status } from "lib/types/order.type";
 import { renderStars, formatPrice } from "lib/utils/helpers";
 import SmallButton from "components/common/small-button";
@@ -35,7 +35,7 @@ interface FinishedCardProps {
 
 const FinishedCard: React.FC<FinishedCardProps> = ({ item, id, scrollRef }) => {
     const router = useRouter();
-    const { handleModal }: any = useContext(ModalContext);
+    // const { handleModal }: any = useContext(ModalContext);
     const [state, dispatch]: any = useAppState();
 
     return (
@@ -152,25 +152,25 @@ const FinishedCard: React.FC<FinishedCardProps> = ({ item, id, scrollRef }) => {
                 <div className="absolute z-30 grid w-full  mt-[-54px] justify-items-center">
                     <SmallButton
                         text="Үнэлгээ өгөх"
-                        onClick={() => (
+                        onClick={() =>
                             dispatch({
                                 type: "star",
                                 star: 0,
-                            }),
-                            handleModal(
-                                true,
-                                "Үнэлгээ өгөх",
-                                <SubmitReview orderId={item._id} />,
-                                true,
-                                <div className="flex">
-                                    <LargeWhiteButton
-                                        type="submit"
-                                        text="Илгээх"
-                                        formId="submit-review-form"
-                                    />
-                                </div>
-                            )
-                        )}
+                            })
+                            // handleModal(
+                            //     true,
+                            //     "Үнэлгээ өгөх",
+                            //     <SubmitReview orderId={item._id} />,
+                            //     true,
+                            //     <div className="flex">
+                            //         <LargeWhiteButton
+                            //             type="submit"
+                            //             text="Илгээх"
+                            //             formId="submit-review-form"
+                            //         />
+                            //     </div>
+                            // )
+                        }
                     />
                 </div>
             )}

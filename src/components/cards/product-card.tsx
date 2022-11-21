@@ -1,6 +1,5 @@
 import ButtonComponent from "components/common/button";
 import { ArrowDown, EditIcon } from "components/icons";
-import { ModalContext } from "lib/context/modal";
 import { formatPrice } from "lib/utils/helpers";
 import { useContext, useRef, useState } from "react";
 import {
@@ -38,7 +37,6 @@ export default function ProductCard({
     const [selectedSpice, setSelectedSpice] = useState<string>(
         spices ? spices[0] : ""
     );
-    const { handleModal }: any = useContext(ModalContext);
 
     const comment = useRef<HTMLInputElement>(null);
 
@@ -132,73 +130,80 @@ export default function ProductCard({
                             {recipe}
                         </div>
                     </div>
-                    {portions && (
-                        <div className="flex flex-col gap-y-1.25">
-                            <div>Порц:</div>
-                            <div className="flex gap-x-1.25">
-                                {portions.map((portion: string) => {
-                                    return (
-                                        <div
-                                            key={portion}
-                                            onClick={() =>
-                                                setSelectedPortion(portion)
-                                            }
-                                            className={
-                                                "py-2.5 rounded-md w-[75px] text-center relative " +
-                                                (selectedPortion === portion
-                                                    ? "gradient-border text-main"
-                                                    : "border border-gray text-gray")
-                                            }
-                                        >
-                                            {portion}
-                                        </div>
-                                    );
-                                })}
+                    {!outOfStock && (
+                        <>
+                            {portions && (
+                                <div className="flex flex-col gap-y-1.25">
+                                    <div>Порц:</div>
+                                    <div className="flex gap-x-1.25">
+                                        {portions.map((portion: string) => {
+                                            return (
+                                                <div
+                                                    key={portion}
+                                                    onClick={() =>
+                                                        setSelectedPortion(
+                                                            portion
+                                                        )
+                                                    }
+                                                    className={
+                                                        "py-2.5 rounded-md w-[75px] text-center relative " +
+                                                        (selectedPortion ===
+                                                        portion
+                                                            ? "gradient-border text-main"
+                                                            : "border border-gray text-gray")
+                                                    }
+                                                >
+                                                    {portion}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            )}
+                            {spices && (
+                                <div className="flex flex-col gap-y-1.25">
+                                    <div>Халуун ногоо:</div>
+                                    <div className="flex gap-x-1.25">
+                                        {spices.map((spice: string) => {
+                                            return (
+                                                <div
+                                                    key={spice}
+                                                    onClick={() =>
+                                                        setSelectedSpice(spice)
+                                                    }
+                                                    className={
+                                                        "py-2.5 rounded-md w-[75px] text-center relative " +
+                                                        (selectedSpice === spice
+                                                            ? "gradient-border text-main"
+                                                            : "border border-gray text-gray")
+                                                    }
+                                                >
+                                                    {spice}%
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            )}
+                            <div className="flex flex-col gap-y-1.25">
+                                <div>Нэмэлт тайлбар:</div>
+                                <div className="relative">
+                                    <input
+                                        ref={comment}
+                                        type="text"
+                                        placeholder="Нэмэлт тайлбар оруулах"
+                                        className="bg-[#F5F5FA] rounded-md w-full focus:outline-none py-[7px] pl-10 pr-5 placeholder:text-gray placeholder:font-light"
+                                    />
+                                    <div className="absolute left-2.5 top-1.5">
+                                        <EditIcon />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div onClick={onAddClick} className="pt-2.5">
+                                <ButtonComponent text="Сагсанд нэмэх" />
+                            </div>
+                        </>
                     )}
-                    {spices && (
-                        <div className="flex flex-col gap-y-1.25">
-                            <div>Халуун ногоо:</div>
-                            <div className="flex gap-x-1.25">
-                                {spices.map((spice: string) => {
-                                    return (
-                                        <div
-                                            key={spice}
-                                            onClick={() =>
-                                                setSelectedSpice(spice)
-                                            }
-                                            className={
-                                                "py-2.5 rounded-md w-[75px] text-center relative " +
-                                                (selectedSpice === spice
-                                                    ? "gradient-border text-main"
-                                                    : "border border-gray text-gray")
-                                            }
-                                        >
-                                            {spice}%
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    )}
-                    <div className="flex flex-col gap-y-1.25">
-                        <div>Нэмэлт тайлбар:</div>
-                        <div className="relative">
-                            <input
-                                ref={comment}
-                                type="text"
-                                placeholder="Нэмэлт тайлбар оруулах"
-                                className="bg-[#F5F5FA] rounded-md w-full focus:outline-none py-[7px] pl-10 pr-5 placeholder:text-gray placeholder:font-light"
-                            />
-                            <div className="absolute left-2.5 top-1.5">
-                                <EditIcon />
-                            </div>
-                        </div>
-                    </div>
-                    <div onClick={onAddClick} className="pt-2.5">
-                        <ButtonComponent text="Сагсанд нэмэх" />
-                    </div>
                 </div>
             </AccordionItemPanel>
         </AccordionItem>

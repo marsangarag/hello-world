@@ -8,7 +8,7 @@ import {
 import { GeolocatedProps, geolocated } from "react-geolocated";
 import Office, { Merchant } from "lib/types/office.type";
 import { useAppState } from "lib/context/app";
-import { ModalContext } from "lib/context/modal";
+// import { ModalContext } from "lib/context/modal";
 import CoffeeShopCard from "components/coffee-shop/card";
 import LargeWhiteButton from "components/common/large-white-button";
 import { useRouter } from "next/router";
@@ -69,7 +69,7 @@ const Map: React.FC<MapProps & GeolocatedProps> = ({
     });
     const [map, setMap] = React.useState<any>(null);
     const [state, dispatch]: any = useAppState();
-    const { handleModal }: any = useContext(ModalContext);
+    // const { handleModal }: any = useContext(ModalContext);
 
     React.useEffect(() => {
         if (coords && map) {

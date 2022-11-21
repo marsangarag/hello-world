@@ -1,4 +1,5 @@
 import ProductCard from "components/cards/product-card";
+import FloatButton from "components/cart/float-button";
 import CategoryProduct from "components/category/product-list";
 import ProductTab from "components/category/product-tab";
 import CategoryTab from "components/category/tab";
@@ -23,42 +24,48 @@ export default function Category() {
     const { merchants, products } = state;
 
     return (
-        <div className="flex flex-col gap-y-2.5 w-full h-[calc(100vh-50px)] overflow-hidden">
-            <div className="bg-white rounded-2.5xl shadow-delivery flex flex-col gap-y-5 py-5">
-                <CategoryTab
-                    tabs={categoryDummyData}
-                    activeTab={activeTab}
-                    setActiveTab={setActiveTab}
-                />
+        <>
+            <div className="flex flex-col gap-y-2.5 w-full h-[calc(100vh-50px)] overflow-hidden">
+                <div className="bg-white rounded-2.5xl shadow-delivery flex flex-col gap-y-5 py-5">
+                    <CategoryTab
+                        tabs={categoryDummyData}
+                        activeTab={activeTab}
+                        setActiveTab={setActiveTab}
+                    />
 
-                <CategoryProduct />
-            </div>
-            <ProductTab activeTab={productTab} setActiveTab={setProductTab} />
-            <div className="relative w-full h-full overflow-y-scroll scrollbar-hide py-5 -mt-2.5">
-                {dummyProducts ? (
-                    <Accordion
-                        // allowMultipleExpanded
-                        allowZeroExpanded
-                        className="flex flex-col gap-y-2.5 px-5"
-                    >
-                        {dummyProducts?.map((product) => {
-                            return (
-                                <ProductCard
-                                    key={product.title}
-                                    product={product}
-                                />
-                            );
-                        })}
-                    </Accordion>
-                ) : (
-                    <div className="absolute items-center text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-y-5">
-                        <Oops />
-                        <div className="font-light">
-                            Урамшуулалтай газар байхгүй байна
+                    <CategoryProduct />
+                </div>
+                <ProductTab
+                    activeTab={productTab}
+                    setActiveTab={setProductTab}
+                />
+                <div className="relative w-full h-full overflow-y-scroll scrollbar-hide py-5 -mt-2.5">
+                    {dummyProducts ? (
+                        <Accordion
+                            // allowMultipleExpanded
+                            allowZeroExpanded
+                            className="flex flex-col gap-y-2.5 px-5"
+                        >
+                            {dummyProducts?.map((product) => {
+                                return (
+                                    <ProductCard
+                                        key={product.title}
+                                        product={product}
+                                    />
+                                );
+                            })}
+                        </Accordion>
+                    ) : (
+                        <div className="absolute items-center text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-y-5">
+                            <Oops />
+                            <div className="font-light">
+                                Урамшуулалтай газар байхгүй байна
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
-        </div>
+            {<FloatButton />}
+        </>
     );
 }

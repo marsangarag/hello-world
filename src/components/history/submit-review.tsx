@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import TokiAPI from "lib/api/toki";
 import { toast } from "lib/utils/helpers";
 import { ReviewType } from "lib/types/review-type";
-import { ModalContext } from "lib/context/modal";
+// import { ModalContext } from "lib/context/modal";
 import CenteredSpin from "components/common/centered-spin";
 import { useAppState } from "lib/context/app";
 
@@ -17,7 +17,7 @@ interface SubmitReviewProps {
 
 const SubmitReview: React.FC<SubmitReviewProps> = ({ orderId }) => {
     const [state, dispatch]: any = useAppState();
-    const { handleModal }: any = useContext(ModalContext);
+    // const { handleModal }: any = useContext(ModalContext);
     const [data, setData] = useState([]);
     const [star, setStar] = useState(state.star);
     const [types, setTypes] = useState<any>([]);
@@ -101,7 +101,7 @@ const SubmitReview: React.FC<SubmitReviewProps> = ({ orderId }) => {
         } finally {
             await mutate(apiUrl);
             setLoading(false);
-            handleModal();
+            // handleModal();
             dispatch({
                 type: "star",
                 star: 0,

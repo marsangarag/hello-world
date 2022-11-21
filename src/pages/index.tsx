@@ -7,7 +7,6 @@ import Map from "components/map";
 import SearchShop from "components/search-shop";
 import OfficeNotFound from "components/office/not-found";
 import OfficeList from "components/office/office-list";
-import { ModalContext } from "lib/context/modal";
 import Office from "lib/types/office.type";
 import TokiAPI from "lib/api/toki";
 import { toast } from "lib/utils/helpers";
@@ -19,7 +18,6 @@ const Index: NextPage = () => {
     const [noResults, setNoResults] = useState(false);
     const [loading, setLoading] = useState(false);
     const [bySearchbar, setBySearchbar] = useState(false);
-    const { visible }: any = useContext(ModalContext);
     const [height, setHeight] = useState("340px");
     const [maxHeight, setMaxHeight] = useState("45vh");
     const apiUrl = `/coffee/app/office/all`;
@@ -100,53 +98,52 @@ const Index: NextPage = () => {
                     offices={data ? data?.data?.data : offices}
                 />
 
-                {!visible &&
-                    (bySearchbar ? (
-                        noResults && (
-                            <div className="absolute z-30 mt-20 text-sm text-gray-600 w-100">
-                                <div className=" mx-5 bg-white divide-y-[0.5px] rounded-[10px]  px-[15px] py-[15px]">
-                                    <p className="text-sm text-normal">
-                                        Уг байршилд хоол хүргэх үйлчилгээ
-                                        хараахан нэвтрээгүй байна
-                                    </p>
-                                </div>
+                {bySearchbar ? (
+                    noResults && (
+                        <div className="absolute z-30 mt-20 text-sm text-gray-600 w-100">
+                            <div className=" mx-5 bg-white divide-y-[0.5px] rounded-[10px]  px-[15px] py-[15px]">
+                                <p className="text-sm text-normal">
+                                    Уг байршилд хоол хүргэх үйлчилгээ хараахан
+                                    нэвтрээгүй байна
+                                </p>
                             </div>
-                        )
-                    ) : (
-                        // </Drawer>
-                        <Drawer
-                            open={(offices && offices.length > 0) || noResults}
-                            direction="bottom"
-                            enableOverlay={false}
-                            size={2}
-                            style={{
-                                height: height,
-                                maxHeight: maxHeight,
-                                background: "#F5F5FA",
-                            }}
-                            className={`p-5 rounded-t-[20px] flex`}
-                        >
-                            {noResults ? (
-                                <OfficeList
-                                    title="Хоол хүргүүлэх боломжтой оффисууд"
-                                    offices={data ? data?.data?.data : offices}
-                                    loading={loading}
-                                    height={height}
-                                    setHeight={setHeight}
-                                    setMaxHeight={setMaxHeight}
-                                />
-                            ) : (
-                                <OfficeList
-                                    title="Хоол хүргүүлэх оффисоо сонгоно уу"
-                                    offices={offices}
-                                    loading={loading}
-                                    height={height}
-                                    setHeight={setHeight}
-                                    setMaxHeight={setMaxHeight}
-                                />
-                            )}
-                        </Drawer>
-                    ))}
+                        </div>
+                    )
+                ) : (
+                    // </Drawer>
+                    <Drawer
+                        open={(offices && offices.length > 0) || noResults}
+                        direction="bottom"
+                        enableOverlay={false}
+                        size={2}
+                        style={{
+                            height: height,
+                            maxHeight: maxHeight,
+                            background: "#F5F5FA",
+                        }}
+                        className={`p-5 rounded-t-[20px] flex`}
+                    >
+                        {noResults ? (
+                            <OfficeList
+                                title="Хоол хүргүүлэх боломжтой оффисууд"
+                                offices={data ? data?.data?.data : offices}
+                                loading={loading}
+                                height={height}
+                                setHeight={setHeight}
+                                setMaxHeight={setMaxHeight}
+                            />
+                        ) : (
+                            <OfficeList
+                                title="Хоол хүргүүлэх оффисоо сонгоно уу"
+                                offices={offices}
+                                loading={loading}
+                                height={height}
+                                setHeight={setHeight}
+                                setMaxHeight={setMaxHeight}
+                            />
+                        )}
+                    </Drawer>
+                )}
             </div>
         </>
     );

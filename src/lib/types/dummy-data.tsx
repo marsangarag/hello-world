@@ -215,3 +215,70 @@ export const dummyProducts = [
 ];
 
 export const productFilters = ["Үнэлгээ", "Үнэ", "Хүргэлт", "Урамшуулал"];
+
+export const dummyReviews = [
+    {
+        name: "Одбат",
+        image: "placeholder.png",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        image: "placeholder.png",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        image: "placeholder.png",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        image: "placeholder.png",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        image: "placeholder.png",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        image: "placeholder.png",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        image: "placeholder.png",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        image: "placeholder.png",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+    {
+        name: "Одбат",
+        image: "placeholder.png",
+        comment: "Sda goy shaajinshde hamaa",
+        date: "7 хоногийн өмнө",
+    },
+];
