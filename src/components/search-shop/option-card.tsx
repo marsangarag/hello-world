@@ -2,7 +2,6 @@ import { useContext } from "react";
 
 import CoffeeShopCard from "components/coffee-shop/card";
 import LargeWhiteButton from "components/common/large-white-button";
-import { ModalContext } from "lib/context/modal";
 import Office, { Merchant } from "lib/types/office.type";
 import { useAppState } from "lib/context/app";
 import { useRouter } from "next/router";
@@ -12,7 +11,6 @@ interface OptionCardProps {
 }
 
 const OptionCard: React.FC<OptionCardProps> = ({ office }) => {
-    const { handleModal }: any = useContext(ModalContext);
     const [state, dispatch]: any = useAppState();
     const router = useRouter();
 
@@ -34,9 +32,7 @@ const OptionCard: React.FC<OptionCardProps> = ({ office }) => {
                     type: "numberOfStorey",
                     numberOfStorey: office.number_of_storey,
                 });
-                router.push(
-                    `/office/${office._id}?tokenid=${router.query.tokenid}`
-                );
+                router.push(`/office/${office._id}`);
             }}
         >
             <p className="mr-1 text-sm text-normal">{office.name}</p>

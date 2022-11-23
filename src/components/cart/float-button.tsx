@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 
 import TokiAPI from "lib/api/toki";
 import Cart from "lib/types/cart.type";
-import { toast } from "lib/utils/helpers";
 import { useAppState } from "lib/context/app";
 import CountBadge from "components/common/count-badge";
 
@@ -23,7 +22,7 @@ const FloatButton: React.FC<FloatButtonProps> = ({
     const router = useRouter();
 
     const onCartClick = () => {
-        router.push(`/cart/${merchantId}`);
+        router.push(`/cart`);
     };
 
     useEffect(() => {

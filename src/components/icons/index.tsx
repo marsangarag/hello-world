@@ -388,3 +388,100 @@ export function LongArrow() {
         </svg>
     );
 }
+
+export function SearchXIcon() {
+    return (
+        <svg
+            width="30"
+            height="35"
+            viewBox="0 0 30 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M19.5 22L10.5 13"
+                stroke="#647382"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M19.5 13L10.5 22"
+                stroke="#647382"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+}
+
+export function NavigateArrow() {
+    return (
+        <svg
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M14.2501 14.25L1.00024 1"
+                stroke="#1E2335"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M9.00006 0.75L0.750244 0.75L0.750244 8.99999"
+                stroke="#1E2335"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+}
+
+export function CloseButton() {
+    return (
+        <svg
+            width="10"
+            height="11"
+            viewBox="0 0 10 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M9.5 10L0.5 1"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M9.5 1L0.5 10"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+}
+
+export function HomeIcon() {
+    return (
+        <svg
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M6.33089 15.2929V12.9139C6.33089 12.3123 6.8109 11.8201 7.41771 11.811H9.61852C10.2253 11.811 10.7144 12.3032 10.7144 12.9139V15.2929C10.7144 15.8034 11.122 16.2318 11.6291 16.2409H13.0963C14.5545 16.2409 15.7409 15.0559 15.75 13.5793V6.82513C15.75 6.25088 15.4692 5.70398 15.0164 5.35762L9.98985 1.28323C9.11134 0.572258 7.86149 0.572258 6.98298 1.28323L1.9836 5.35762C1.53076 5.7131 1.25906 6.25088 1.25 6.83424V13.5884C1.25 15.0559 2.43645 16.25 3.8946 16.25H5.36181C5.8871 16.25 6.30372 15.8216 6.31277 15.302"
+                stroke="#1E2335"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+}

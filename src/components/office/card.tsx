@@ -36,9 +36,7 @@ const OfficeCard: React.FC<OfficeCardProps> = ({ office }) => {
                         type: "notThroughLink",
                         notThroughLink: true,
                     });
-                    router.push(
-                        `/office/${office._id}?tokenid=${router.query.tokenid}`
-                    );
+                    router.push(`/office/${office._id}s`);
                 }}
                 className="flex items-center gap-x-[15px]"
             >

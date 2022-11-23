@@ -176,9 +176,7 @@ const Map: React.FC<MapProps & GeolocatedProps> = ({
                                 type: "numberOfStorey",
                                 numberOfStorey: office.number_of_storey,
                             }),
-                            router.push(
-                                `/office/${office._id}?tokenid=${router.query.tokenid}`
-                            )
+                            router.push(`/office/${office._id}`)
                         )}
                     />
                 ))}

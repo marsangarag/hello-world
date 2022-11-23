@@ -34,7 +34,7 @@
     transition: height 500ms;
 }
 
-.Toastify__toast-theme--dark {
+/* .Toastify__toast-theme--dark {
     background: rgb(30, 35, 53, 0.5);
     border-radius: 10px;
     height: fit-content;
@@ -42,16 +42,16 @@
 
 .Toastify__close-button {
     display: none;
-}
+} */
 
-.Toastify__toast-container--bottom-center,
+/* .Toastify__toast-container--bottom-center,
 .Toastify__toast-container--bottom-left,
 .Toastify__toast-container--bottom-right {
     max-width: 80%;
     width: fit-content;
-}
+} */
 
-@media only screen and (max-width: 480px) {
+/* @media only screen and (max-width: 480px) {
     .Toastify__toast-container--bottom-center,
     .Toastify__toast-container--bottom-left,
     .Toastify__toast-container--bottom-right {
@@ -75,9 +75,9 @@
         bottom: 35px;
         transform: translateX(15%);
     }
-}
+} */
 
-.Toastify__toast-body {
+/* .Toastify__toast-body {
     padding-top: 3px;
     padding-bottom: 3px;
     margin-top: 0px;
@@ -88,7 +88,7 @@
 .Toastify__toast {
     height: fit-content;
     min-height: 38px;
-}
+} */
 
 .drag-indicator {
     height: 5px;
@@ -138,4 +138,40 @@ img {
 
 #cart {
     background: linear-gradient(135deg, #ffbe78 0%, #ff7a1f 100%);
+}
+
+.Toastify__toast {
+    @apply min-h-[35px] !important;
+}
+
+.Toastify__toast-body {
+    @apply p-0 m-0 !important;
+}
+
+.Toastify__toast {
+    @apply bg-main/75 text-white rounded-md w-[295px] bottom-[35px] block text-center text-xs px-2.5 py-3 mx-auto !important;
+}
+.location-toast {
+    @apply top-[60px] flex justify-between items-center left-5 m-0 w-[235px] py-2.5 !important;
+}
+
+/* Radio button styles */
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    @apply m-0 bg-transparent w-[18px] h-[18px] rounded-full border-[1.5px] border-[#B3BFC6];
+}
+input[type="radio"]:checked {
+    @apply border-gradient-end;
+}
+
+input[type="radio"]:after {
+    content: "";
+    @apply hidden absolute w-3 h-3 ml-0.5 mt-[1px] bg-gradient-end rounded-full;
+}
+
+/* Show the indicator (dot/circle) when checked */
+input[type="radio"]:checked::after {
+    @apply block;
 }

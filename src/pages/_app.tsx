@@ -43,8 +43,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
                             <ToastContainer
                                 transition={Slide}
                                 newestOnTop={true}
+                                position={"bottom-center"}
                                 limit={1}
+                                closeOnClick
+                                autoClose={1000}
                                 hideProgressBar={true}
+                                pauseOnHover={false}
+                                closeButton={false}
                             />
                         </Page>
                     </ModalProvider>

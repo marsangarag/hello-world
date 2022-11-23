@@ -1,5 +1,3 @@
-import { string } from "yup/lib/locale";
-
 export default interface Cart {
     _id: string;
     customer: string;

@@ -2,19 +2,17 @@ import { toast as reactToastify } from "react-toastify";
 import { intervalToDuration } from "date-fns";
 import { zeroPad } from "react-countdown";
 
-export const toast = (text: string) =>
-    reactToastify(text, {
-        position: "bottom-center",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: 0,
-        theme: "dark",
-        bodyClassName: "text-center text-sm",
-        className: "w-80",
-    });
+// export const toast = (text: string, location: boolean = false) =>
+//     reactToastify(text, {
+//         position: location ? "top-left" : "bottom-center",
+//         autoClose: 3000,
+//         hideProgressBar: true,
+//         closeOnClick: true,
+//         pauseOnHover: false,
+//         theme: "dark",
+//         bodyClassName: "text-center text-sm",
+//         className: "custom-toast",
+//     });
 
 export const renderStars = (avgReview: number, type: string = "") => {
     const stars: any[] = [];

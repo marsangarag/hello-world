@@ -19,9 +19,7 @@ const Footer = ({ routerPathName }: any) => {
         <footer className="fixed z-30 bottom-0 w-full items-center grid grid-cols-2 gap-4 py-2.5 px-5 bg-white rounded-t-[20px] shadow-2xl shadow-black">
             {
                 <>
-                    <Link
-                        href={`/office/${state.officeId}?tokenid=${router.query.tokenid}`}
-                    >
+                    <Link href={`/office/${state.officeId}`}>
                         <div>
                             <FooterButton
                                 state={state}
@@ -34,9 +32,7 @@ const Footer = ({ routerPathName }: any) => {
                             />
                         </div>
                     </Link>
-                    <Link
-                        href={`/order-history?tokenid=${router.query.tokenid}`}
-                    >
+                    <Link href={`/order-history`}>
                         <a>
                             <div>
                                 <FooterButton
@@ -62,7 +58,7 @@ const Footer = ({ routerPathName }: any) => {
                 //         {state.cartCount > 0 ? (
                 //             <>
                 //                 <Link
-                //                     href={`/cart/${merchantId}?tokenid=${router.query.tokenid}`}
+                //                     href={`/cart/${merchantId}`}
                 //                 >
                 //                     <a>
                 //                         <div className="flex content-center justify-center">
@@ -71,7 +67,7 @@ const Footer = ({ routerPathName }: any) => {
                 //                     </a>
                 //                 </Link>
                 //                 <Link
-                //                     href={`/cart/${merchantId}?tokenid=${router.query.tokenid}`}
+                //                     href={`/cart/${merchantId}`}
                 //                 >
                 //                     <a>
                 //                         <div className="flex content-center justify-center">

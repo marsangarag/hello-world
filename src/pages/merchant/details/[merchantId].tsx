@@ -21,8 +21,6 @@ export default function MerchantDetailPage() {
         setMerchant(merchant);
     }, []);
 
-    console.log(merchant);
-
     return (
         <>
             {merchant && (
