@@ -1,39 +1,35 @@
-export default function DeliveryType({
-    setDeliveryType,
-}: {
-    setDeliveryType: any;
-}) {
+export function Vat({ setVat }: { setVat: any }) {
     return (
         <div
-            onChange={(event: any) => setDeliveryType(event.target.value)}
+            onChange={(event: any) => setVat(event.target.value)}
             className="flex justify-start gap-x-5 items-center text-sm"
         >
             <label
                 className="flex items-center gap-x-2.5 relative"
-                htmlFor="deliver"
+                htmlFor="individual"
             >
                 <input
                     defaultChecked
                     type="radio"
-                    name="typeofdelivery"
-                    id="deliver"
-                    value="deliver"
+                    name="vatType"
+                    id="individual"
+                    value="individual"
                 />
                 <div className="checkmark"></div>
-                <div>Хүргүүлэх</div>
+                <div>Хувь хүн</div>
             </label>
             <label
                 className="flex items-center gap-x-2.5 relative"
-                htmlFor="takeout"
+                htmlFor="organization"
             >
                 <input
                     type="radio"
-                    name="typeofdelivery"
-                    id="takeout"
-                    value="takeout"
+                    name="vatType"
+                    id="organization"
+                    value="organization"
                 />
                 <div className="checkmark"></div>
-                <div>Очиж авах</div>
+                <div>Байгууллага</div>
             </label>
         </div>
     );

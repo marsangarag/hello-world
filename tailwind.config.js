@@ -41,6 +41,9 @@ module.exports = {
             spacing: {
                 3.75: "15px",
             },
+            zIndex: {
+                max: "99999",
+            },
         },
     },
     plugins: [

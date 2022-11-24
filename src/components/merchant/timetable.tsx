@@ -1,4 +1,3 @@
-import CategoryTitle from "components/common/category-title";
 import { Timetable } from "lib/types/office.type";
 
 export default function MerchantTimetable({
@@ -7,8 +6,8 @@ export default function MerchantTimetable({
     timetable: Timetable[];
 }) {
     return (
-        <div className="flex flex-col gap-y-3.75">
-            <CategoryTitle title="Цагийн хуваарь" />
+        <div className="my-col-15">
+            <div className="font-medium">Цагийн хуваарь</div>
             <div className="bg-white rounded-2xl text-center grid grid-cols-3 text-sm gap-[1px]">
                 <div className="p-2.5 border-b border-r border-gray/10">
                     Гараг

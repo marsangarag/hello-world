@@ -22,7 +22,7 @@ const FloatButton: React.FC<FloatButtonProps> = ({
     const router = useRouter();
 
     const onCartClick = () => {
-        router.push(`/cart`);
+        router.push(`/order`);
     };
 
     useEffect(() => {

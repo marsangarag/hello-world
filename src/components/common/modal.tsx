@@ -14,7 +14,7 @@ const Modal = () => {
                         setShow(false);
                     }, 400);
                 }}
-                className="fixed bg-black/50 inset-0 z-30 overflow-hidden"
+                className="fixed bg-black/50 inset-0 z-50 overflow-hidden"
             ></div>
         </>
     ) : null;

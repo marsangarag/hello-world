@@ -11,6 +11,8 @@
     "dependencies": {
         "@hookform/resolvers": "^2.8.8",
         "@react-google-maps/api": "^2.8.1",
+        "@types/aos": "^3.0.4",
+        "aos": "^2.3.4",
         "axios": "^0.26.1",
         "date-fns": "^2.28.0",
         "lottie-react": "^2.3.1",

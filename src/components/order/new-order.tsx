@@ -300,7 +300,7 @@ const NewOrder: React.FC<NewOrderPros> = ({ type, data }) => {
                     />
 
                     <input
-                        className="w-full p-3 bg-[#F5F5FA] border-[#B3BFC6] rounded-xl border-[1px] mt-3 focus:ring-0 focus:outline-none font-light text-sm"
+                        className="w-full p-3 bg-[#F5F5FA] border-[#B3BFC6] rounded-xl border-[1px] mt-3 focus:ring-0  font-light text-sm"
                         placeholder="Тоот / Байгууллагын нэр"
                         type="input"
                         autoComplete="off"
@@ -378,7 +378,7 @@ const NewOrder: React.FC<NewOrderPros> = ({ type, data }) => {
                         {...register("ebarimt_type")}
                     />
                     <label
-                        className="flex px-3 font-light border border-gray-300 cursor-pointer text-[#647382] focus:outline-none hover:bg-gray-50 capitalize justify-center p-2 bg-[#F5F5FA] text-sm"
+                        className="flex px-3 font-light border border-gray-300 cursor-pointer text-[#647382]  hover:bg-gray-50 capitalize justify-center p-2 bg-[#F5F5FA] text-sm"
                         htmlFor={`ebarimt_type_individual`}
                     >
                         Хувь хүн
@@ -411,7 +411,7 @@ const NewOrder: React.FC<NewOrderPros> = ({ type, data }) => {
                         {...register("ebarimt_type")}
                     />
                     <label
-                        className="flex px-3 font-light border border-gray-300 rounded-b-lg border-t-0 cursor-pointer text-[#647382] focus:outline-none hover:bg-gray-50 capitalize justify-center p-2 bg-[#F5F5FA] text-sm"
+                        className="flex px-3 font-light border border-gray-300 rounded-b-lg border-t-0 cursor-pointer text-[#647382]  hover:bg-gray-50 capitalize justify-center p-2 bg-[#F5F5FA] text-sm"
                         htmlFor={`ebarimt_type_company`}
                     >
                         Байгууллага
@@ -426,7 +426,7 @@ const NewOrder: React.FC<NewOrderPros> = ({ type, data }) => {
                 deliveryOptions.ebarimt_type === "company") && (
                 <>
                     <input
-                        className="w-full p-3 bg-[#F5F5FA] border-[#B3BFC6] rounded-xl border-[1px] mt-3 focus:ring-0 focus:outline-none font-light text-sm"
+                        className="w-full p-3 bg-[#F5F5FA] border-[#B3BFC6] rounded-xl border-[1px] mt-3 focus:ring-0  font-light text-sm"
                         placeholder="Байгууллагын РД"
                         type="input"
                         autoComplete="off"
@@ -443,7 +443,7 @@ const NewOrder: React.FC<NewOrderPros> = ({ type, data }) => {
                 placeholder="Нэмэлт мэдээлэл: (соруул, сахар...)"
                 type="input"
                 autoComplete="off"
-                className="w-full p-3 bg-[#F5F5FA] border-[#B3BFC6] rounded-xl border-[1px] mb-3 my-3 focus:ring-0 focus:outline-none font-light text-sm"
+                className="w-full p-3 bg-[#F5F5FA] border-[#B3BFC6] rounded-xl border-[1px] mb-3 my-3 focus:ring-0  font-light text-sm"
             />
             <p className="mt-1 text-xs italic text-left text-red-500">
                 {errors.delivery_instruction?.message}

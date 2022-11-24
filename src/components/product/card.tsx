@@ -261,7 +261,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                                                                         id={`${product._id}_${applicableOption.option._id}_${applicableChoice}`}
                                                                     />
                                                                     <label
-                                                                        className="flex px-3 text-sm font-normalt bg-white border border-[#a5aeb8] rounded-[10px] cursor-pointer text-[#a5aeb8] focus:outline-none hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-2 peer-checked:font-md  peer-checked:border-transparent capitalize"
+                                                                        className="flex px-3 text-sm font-normalt bg-white border border-[#a5aeb8] rounded-[10px] cursor-pointer text-[#a5aeb8]  hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-2 peer-checked:font-md  peer-checked:border-transparent capitalize"
                                                                         htmlFor={`${product._id}_${applicableOption.option._id}_${applicableChoice}`}
                                                                     >
                                                                         {

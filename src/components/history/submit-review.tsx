@@ -256,7 +256,7 @@ const SubmitReview: React.FC<SubmitReviewProps> = ({ orderId }) => {
                                                                     )
                                                                 ) === true ? (
                                                                     <div
-                                                                        className={`border-[#1E2335] text-[#1E2335] ring-[#1E2335]  ring-2 font-md  border-transparent text-sm flex  font-light  border rounded-[10px] cursor-pointer focus:outline-none  px-[15px] py-[10px] hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-2 peer-checked:font-md  peer-checked:border-transparent `}
+                                                                        className={`border-[#1E2335] text-[#1E2335] ring-[#1E2335]  ring-2 font-md  border-transparent text-sm flex  font-light  border rounded-[10px] cursor-pointer   px-[15px] py-[10px] hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-2 peer-checked:font-md  peer-checked:border-transparent `}
                                                                         onClick={() => {
                                                                             arrayAddElement(
                                                                                 String(
@@ -272,7 +272,7 @@ const SubmitReview: React.FC<SubmitReviewProps> = ({ orderId }) => {
                                                                     </div>
                                                                 ) : (
                                                                     <div
-                                                                        className={`border-[#a5aeb8]  text-[#a5aeb8] flex  font-light  border rounded-[10px] cursor-pointer focus:outline-none  px-[15px] py-[10px] hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-2 peer-checked:font-md  peer-checked:border-transparent text-sm`}
+                                                                        className={`border-[#a5aeb8]  text-[#a5aeb8] flex  font-light  border rounded-[10px] cursor-pointer   px-[15px] py-[10px] hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-2 peer-checked:font-md  peer-checked:border-transparent text-sm`}
                                                                         onClick={() => {
                                                                             arrayAddElement(
                                                                                 String(
@@ -304,7 +304,7 @@ const SubmitReview: React.FC<SubmitReviewProps> = ({ orderId }) => {
                         placeholder="Нэмэлт санал гомдол бичих"
                         type="input"
                         autoComplete="off"
-                        className="w-full px-[15px] py-[10px] bg-transparent  border-[#B3BFC6] rounded-xl border-[1px]  focus:ring-0 focus:outline-none font-light text-sm"
+                        className="w-full px-[15px] py-[10px] bg-transparent  border-[#B3BFC6] rounded-xl border-[1px]  focus:ring-0  font-light text-sm"
                     />
                     <p className="mt-1 mb-3 text-xs italic text-left text-red-500">
                         {errors.comment?.message}

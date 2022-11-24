@@ -24,7 +24,7 @@ export default function MerchantDetailPage() {
     return (
         <>
             {merchant && (
-                <div className="p-5 flex flex-col gap-y-5">
+                <div className="p-5 my-col-20">
                     <MerchantIntroduction merchant={merchant} />
                     <MerchantTimetable timetable={merchant.timetable} />
                     <MerchantReview />

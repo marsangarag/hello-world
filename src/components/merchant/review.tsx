@@ -1,10 +1,9 @@
-import CategoryTitle from "components/common/category-title";
 import { dummyReviews } from "lib/types/dummy-data";
 
 export default function MerchantReview() {
     return (
-        <div className="flex flex-col gap-y-3.75">
-            <CategoryTitle title="Үнэлгээ" />
+        <div className="my-col-15">
+            <div className="font-medium">Үнэлгээ</div>
             <div className="bg-white rounded-2xl pb-2.5">
                 {/* Average reviews */}
                 <div className="grid grid-cols-5 items-center">
@@ -31,7 +30,10 @@ export default function MerchantReview() {
                                 key={review.name}
                                 className="py-2.5 border-t flex flex-col gap-y-2.5 border-gray/10 px-5 h-[110px]"
                             >
-                                <CategoryTitle title={review.name} />
+                                <div
+                                    className="font-medium"
+                                    title={review.name}
+                                />
                                 <div className="flex items-center gap-x-5">
                                     {review.image && (
                                         <img

@@ -20,7 +20,7 @@ export default function CategoryProduct({ products }: { products?: Product }) {
             modules={[Pagination]}
             pagination={{ clickable: true }}
             slidesPerView={1}
-            className="w-full flex flex-col gap-y-3.75"
+            className="w-full my-col-15"
             autoplay={false}
         >
             {[...Array(swiperLength)]?.map((n: any, index: number) => {

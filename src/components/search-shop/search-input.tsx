@@ -28,7 +28,7 @@ export default function SearchInput({
                 } relative  text-[#647382] font-normal focus-within:text-gray-400`}
             >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <span className="p-1 focus:outline-none focus:shadow-outline py-auto">
+                    <span className="p-1  focus:shadow-outline py-auto">
                         <span className="icon-Search---Light-icon-2 text-[17px]"></span>
                     </span>
                 </span>
@@ -39,7 +39,7 @@ export default function SearchInput({
                         }
                     }}
                     type="input"
-                    className={`w-full py-2 pl-10 pr-10  text-base text-[#647382] font-normal bg-white border-none rounded-[10px] disabled focus:outline-none ${
+                    className={`w-full py-2 pl-10 pr-10  text-base text-[#647382] font-normal bg-white border-none rounded-[10px] disabled  ${
                         type === 1 && "cursor-pointer"
                     }`}
                     placeholder={` ${

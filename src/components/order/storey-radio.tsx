@@ -28,7 +28,7 @@ export default function StoreyRadio(props: any) {
                         }
                     />
                     <label
-                        className="flex px-3 font-light bg-white border border-gray-300 rounded-lg cursor-pointer text-[#647382] focus:outline-none hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-1 peer-checked:font-md  peer-checked:border-transparent capitalize justify-center p-2"
+                        className="flex px-3 font-light bg-white border border-gray-300 rounded-lg cursor-pointer text-[#647382]  hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-1 peer-checked:font-md  peer-checked:border-transparent capitalize justify-center p-2"
                         htmlFor={`delivery_floor_${i}`}
                     >
                         {i}

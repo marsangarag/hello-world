@@ -26,7 +26,7 @@ export default function Category() {
     return (
         <>
             <div className="flex flex-col gap-y-2.5 w-full h-[calc(100vh-50px)] overflow-hidden">
-                <div className="bg-white rounded-2.5xl shadow-delivery flex flex-col gap-y-5 py-5">
+                <div className="bg-white rounded-2.5xl shadow-delivery my-col-20 py-5">
                     <CategoryTab
                         tabs={categoryDummyData}
                         activeTab={activeTab}
@@ -56,7 +56,7 @@ export default function Category() {
                             })}
                         </Accordion>
                     ) : (
-                        <div className="absolute items-center text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-y-5">
+                        <div className="absolute items-center text-center left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 my-col-20">
                             <Oops />
                             <div className="font-light">
                                 Урамшуулалтай газар байхгүй байна

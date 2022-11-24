@@ -192,7 +192,7 @@ export default function ProductCard({
                                         ref={comment}
                                         type="text"
                                         placeholder="Нэмэлт тайлбар оруулах"
-                                        className="bg-[#F5F5FA] rounded-md w-full focus:outline-none py-[7px] pl-10 pr-5 placeholder:text-gray placeholder:font-light"
+                                        className="bg-[#F5F5FA] rounded-md w-full  py-[7px] pl-10 pr-5 placeholder:text-gray placeholder:font-light"
                                     />
                                     <div className="absolute left-2.5 top-1.5">
                                         <EditIcon />

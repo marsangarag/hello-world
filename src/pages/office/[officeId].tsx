@@ -1,6 +1,5 @@
 import Recommended from "components/cards/recommended-card";
 import GradientMerchantCard from "components/cards/gradient-merchant-card";
-import CategoryTitle from "components/common/category-title";
 import CenteredSpin from "components/common/centered-spin";
 import {
     CloseButton,
@@ -74,7 +73,7 @@ export default function Office() {
         <CenteredSpin />
     ) : (
         <>
-            <div className="p-5 flex flex-col gap-y-5 relative">
+            <div className="p-5 my-col-20 relative">
                 {/* Search Input  */}
                 <>
                     <input
@@ -82,7 +81,7 @@ export default function Office() {
                         type="text"
                         autoComplete="off"
                         value={searchValue}
-                        className="bg-white caret-[#FF7A1F] font-light relative rounded-md py-[9px] px-8 focus:outline-none placeholder:font-light placeholder:text-sm text-sm"
+                        className="bg-white caret-[#FF7A1F] font-light relative rounded-md py-[9px] px-8  placeholder:font-light placeholder:text-sm text-sm"
                         placeholder="Хайх"
                     />
                     <div className="absolute left-[30px] icon-Search---Light-icon-2 top-[28px]"></div>
@@ -97,7 +96,7 @@ export default function Office() {
                 </>
                 {searchValue !== "" ? (
                     searchProducts?.length > 0 ? (
-                        <div className="bg-white rounded-md pt-3.75 px-5 text-sm font-light -mt-2.5 flex flex-col gap-y-3.75">
+                        <div className="bg-white rounded-md pt-3.75 px-5 text-sm font-light -mt-2.5 my-col-15">
                             {searchProducts?.slice(0, 3).map((product) => {
                                 return (
                                     <div
@@ -112,7 +111,7 @@ export default function Office() {
                         </div>
                     ) : (
                         <>
-                            <div className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-y-5 items-center">
+                            <div className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 my-col-20 items-center">
                                 <Oops />
                                 <div className="font-light text-center">
                                     Хайлтад тохирох илэрц олдсонгүй
@@ -134,7 +133,7 @@ export default function Office() {
                         </div>
                         <div>
                             <div className="flex justify-between pb-[15px] items-center">
-                                <CategoryTitle title="Бүгд" />
+                                <div className="font-medium">Бүгд</div>
                                 <div className="flex gap-x-2.5 items-center">
                                     <div className="text-xs font-light text-gray">
                                         {activeFilter}

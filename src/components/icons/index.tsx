@@ -485,3 +485,58 @@ export function HomeIcon() {
         </svg>
     );
 }
+
+export function Remove() {
+    return (
+        <svg
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <circle cx="7.5" cy="7.5" r="7.5" fill="#FFBE78" />
+            <line
+                x1="10.75"
+                y1="7.5"
+                x2="4.25"
+                y2="7.5"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+            />
+        </svg>
+    );
+}
+
+export function Add() {
+    return (
+        <svg
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <circle cx="7.5" cy="7.5" r="7.5" fill="#FF7A1F" />
+            <line
+                x1="10.75"
+                y1="7.5"
+                x2="4.25"
+                y2="7.5"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+            />
+            <line
+                x1="7.5"
+                y1="10.75"
+                x2="7.5"
+                y2="4.25"
+                stroke="white"
+                stroke-width="1.5"
+                stroke-linecap="round"
+            />
+        </svg>
+    );
+}

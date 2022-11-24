@@ -36,7 +36,7 @@ export default function MerchantProductPage() {
     return (
         <>
             {merchant && (
-                <div className="h-[calc(100vh-50px)] w-full overflow-hidden p-5 flex flex-col gap-y-5">
+                <div className="h-[calc(100vh-50px)] w-full overflow-hidden p-5 my-col-20">
                     <GreadientMerchantCard page={true} merchant={merchant!} />
                     <div className="-mx-5">
                         <CategoryTab

@@ -1,4 +1,3 @@
-import CategoryTitle from "components/common/category-title";
 import { Merchant } from "lib/types/office.type";
 
 export default function MerchantIntroduction({
@@ -7,8 +6,8 @@ export default function MerchantIntroduction({
     merchant: Merchant;
 }) {
     return (
-        <div className="flex flex-col gap-y-3.75">
-            <CategoryTitle title="Танилцуулга" />
+        <div className="my-col-15">
+            <div className="font-medium">Танилцуулга</div>
             <div className="flex gap-x-[1px] overflow-x-scroll scrollbar-hide -mx-5 px-5">
                 <img
                     src={`${merchant.logo}`}
@@ -16,7 +15,7 @@ export default function MerchantIntroduction({
                     className="w-[83px] h-[83px] rounded-md"
                 />
             </div>
-            <div className="flex flex-col gap-y-5 font-light text-justify text-sm">
+            <div className="my-col-20 font-light text-justify text-sm">
                 <div>
                     Өдөр болгон шинэ махаар эрүүл цэвэрхэн орчинд бэлтгэсэн
                     Монгол үндэсний хоолоор үйлчилж байна
