@@ -76,7 +76,7 @@ export default function GreadientMerchantCard({
                 <PermissionBox
                     text={
                         <>
-                            <div className="flex flex-col gap-y-5">
+                            <div className="my-col-20">
                                 Зоогийн газар хаалттай байна. Та бусад зоогийн
                                 газраас сонголтоо хийнэ үү
                                 <div>
@@ -96,7 +96,7 @@ export default function GreadientMerchantCard({
                 <PermissionBox
                     text={
                         <>
-                            <div className="flex flex-col gap-y-5">
+                            <div className="my-col-20">
                                 <div>
                                     Зоогийн газар дотоод ажилтай байгаа тул
                                     захиалга авахгүй
@@ -122,7 +122,7 @@ export default function GreadientMerchantCard({
                     className="h-40 min-w-full"
                     alt={merchant.name}
                 />
-                <div className="absolute z-20 left-3.75 bottom-3.75 text-white flex flex-col gap-y-1.25 items-start">
+                <div className="absolute z-20 left-3.75 bottom-3.75 text-white my-col-5 items-start">
                     <div className="text-sm">{`${merchant.name} (${merchant.temporary_closed}) 👍 ${merchant.avg_review}`}</div>
                     <div className="text-xs font-light flex justify-start gap-x-1.25 items-center">
                         <ClockIcon />

@@ -4,7 +4,7 @@ import { useAppState } from "lib/context/app";
 const NoBackButtonRoutes = [
     "/office/[officeId]",
     "/product-list/[merchantId]/[categoryId]",
-    "/order-detail/[orderId]",
+    "/order-history",
 ];
 
 const Header = ({ routerPathName }: any) => {

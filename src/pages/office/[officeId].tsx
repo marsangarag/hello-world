@@ -141,7 +141,7 @@ export default function Office() {
                                     <FilterIcon />
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-y-2.5">
+                            <div className="my-col-10">
                                 {merchants
                                     ?.slice(0, 2)
                                     .map((merchant: Merchant) => {

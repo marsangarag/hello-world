@@ -5,17 +5,13 @@ import FooterButton from "components/common/footer-button";
 import FooterCartButton from "components/common/footer-cart-button";
 import MediumButton from "components/common/medium-button";
 import { useAppState } from "lib/context/app";
-import { toast } from "lib/utils/helpers";
-
-const CartFooterRoutes = ["/office/[officeId]"];
 
 const Footer = ({ routerPathName }: any) => {
-    const isCartFooter = CartFooterRoutes.includes(routerPathName);
     const [state]: any = useAppState();
     const router = useRouter();
     const { merchantId } = router.query;
 
-    return isCartFooter ? (
+    return (
         <footer className="fixed z-30 bottom-0 w-full items-center grid grid-cols-2 gap-4 py-2.5 px-5 bg-white rounded-t-[20px] shadow-2xl shadow-black">
             {
                 <>
@@ -25,7 +21,7 @@ const Footer = ({ routerPathName }: any) => {
                                 state={state}
                                 type="menu"
                                 isActive={
-                                    routerPathName == "/office/[officeId]"
+                                    routerPathName === "/office/[officeId]"
                                         ? true
                                         : false
                                 }
@@ -33,23 +29,21 @@ const Footer = ({ routerPathName }: any) => {
                         </div>
                     </Link>
                     <Link href={`/order-history`}>
-                        <a>
-                            <div>
-                                <FooterButton
-                                    state={state}
-                                    type="order"
-                                    isActive={
-                                        routerPathName == "/order-history" ||
-                                        routerPathName ==
-                                            "/order-history/notification/review" ||
-                                        routerPathName ==
-                                            "/order-history/notification/jump"
-                                            ? true
-                                            : false
-                                    }
-                                />
-                            </div>
-                        </a>
+                        <div>
+                            <FooterButton
+                                state={state}
+                                type="order"
+                                isActive={
+                                    routerPathName == "/order-history" ||
+                                    routerPathName ==
+                                        "/order-history/notification/review" ||
+                                    routerPathName ==
+                                        "/order-history/notification/jump"
+                                        ? true
+                                        : false
+                                }
+                            />
+                        </div>
                     </Link>
                 </>
 
@@ -109,7 +103,7 @@ const Footer = ({ routerPathName }: any) => {
                 // )
             }
         </footer>
-    ) : null;
+    );
 };
 
 export default Footer;

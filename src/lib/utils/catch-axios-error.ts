@@ -1,4 +1,4 @@
-import { toast } from "./helpers";
+import { toast } from "react-toastify";
 
 const catchAxiosError = (error: any) => {
     let message;

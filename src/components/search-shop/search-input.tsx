@@ -39,9 +39,10 @@ export default function SearchInput({
                         }
                     }}
                     type="input"
-                    className={`w-full py-2 pl-10 pr-10  text-base text-[#647382] font-normal bg-white border-none rounded-[10px] disabled  ${
-                        type === 1 && "cursor-pointer"
-                    }`}
+                    className={`w-full py-2 pl-10 pr-10  text-sm
+                     text-[#647382] font-normal placeholder:font-light bg-white border-none rounded-[10px] disabled  ${
+                         type === 1 && "cursor-pointer"
+                     }`}
                     placeholder={` ${
                         type === 1 ? state.officeName : "Хаяг хайх"
                     }  `}

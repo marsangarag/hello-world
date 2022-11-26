@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import CenteredSpin from "components/common/centered-spin";
 import axios from "lib/utils/axios";
 import TokiAPI from "lib/api/toki";
-import { toast } from "lib/utils/helpers";
+import { toast } from "react-toastify";
 
 const WithAuth = ({ children }: any) => {
     const router = useRouter();
@@ -17,9 +17,9 @@ const WithAuth = ({ children }: any) => {
 
                 try {
                     const { data } = await TokiAPI.getUser(
-                        router.query.tokenid
-                            ? router.query.tokenid.toString()
-                            : `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNThjZGNlMGMyMzc0ODFkMzlmMjBlOSIsInRva2VuVHlwZSI6Ik1JTklQUk9HUkFNX1RPS0VOIiwibWluaVByb2dyYW1JZCI6IjYyNWJmMjBjYjIyYjZiYmE3ZjU3MDkwYiIsInRpbWVzdGFtcCI6MTY1NTQ1NDY1OTk3OCwiaWF0IjoxNjU1NDU0NjU5LCJleHAiOjE2NTU1NDEwNTl9.QG6LM_c-JWkQxIJUu_Rlff0NdwMHF9rBDjyHkMpl_so`
+                        router.query.tokenid?.toString()!
+                        // ? router.query.tokenid.toString()
+                        // : `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNThjZGNlMGMyMzc0ODFkMzlmMjBlOSIsInRva2VuVHlwZSI6Ik1JTklQUk9HUkFNX1RPS0VOIiwibWluaVByb2dyYW1JZCI6IjYyNWJmMjBjYjIyYjZiYmE3ZjU3MDkwYiIsInRpbWVzdGFtcCI6MTY1NTQ1NDY1OTk3OCwiaWF0IjoxNjU1NDU0NjU5LCJleHAiOjE2NTU1NDEwNTl9.QG6LM_c-JWkQxIJUu_Rlff0NdwMHF9rBDjyHkMpl_so`
                     );
 
                     if (data.status_code === 0) {

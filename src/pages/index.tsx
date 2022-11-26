@@ -9,7 +9,7 @@ import OfficeNotFound from "components/office/not-found";
 import OfficeList from "components/office/office-list";
 import Office from "lib/types/office.type";
 import TokiAPI from "lib/api/toki";
-import { toast } from "lib/utils/helpers";
+import { toast } from "react-toastify";
 
 let isMyOffice = false;
 

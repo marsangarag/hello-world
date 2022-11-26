@@ -5,18 +5,9 @@ interface OrderStatusProps {
 }
 
 const OrderStatus: React.FC<OrderStatusProps> = ({ status }) => (
-    <span
-        className={`
-            ${
-                status === Status.PREPARED ||
-                status === Status.DELIVERING ||
-                status === Status.COMPLETED
-                    ? "bg-[#B8EF8F]"
-                    : "bg-[#FAD175]"
-            }  text-xs inline-block py-[5px] px-[14px] leading-none text-center align-baseline text-gray-700 rounded-xl h-fit`}
-    >
+    <div className="text-gray font-light text-sm">
         {status === Status.PAYMENT_PENDING
-            ? "Төлбөр хүлээж байна"
+            ? "Төлбөр хүлээгдэж буй"
             : status === Status.PAID
             ? "Захиалагдсан"
             : status === Status.PREPARING
@@ -24,13 +15,13 @@ const OrderStatus: React.FC<OrderStatusProps> = ({ status }) => (
             : status === Status.PREPARED
             ? "Бэлэн болсон"
             : status === Status.DELIVERING
-            ? "Хүргэгдэж байна"
+            ? "Хүргэлтэнд гарсан"
             : status === Status.COMPLETED
             ? "Биелсэн"
             : status === Status.CANCELLED
             ? "Цуцлагдсан"
             : ""}
-    </span>
+    </div>
 );
 
 export default OrderStatus;

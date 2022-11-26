@@ -16,19 +16,19 @@ export default function MerchantTimetable({
                     Хүргэлт
                 </div>
                 <div className="p-2.5 border-b border-gray/10">Очиж авах</div>
-                <div className="p-2.5 border-r border-gray/10 flex flex-col gap-y-2.5">
+                <div className="p-2.5 border-r border-gray/10 my-col-10">
                     <div>Даваа - Баасан</div>
                     <div>Бямба</div>
                     <div>Ням</div>
                 </div>
                 {/* Хүргэлт */}
-                <div className="p-2.5 border-r border-gray/10 flex flex-col gap-y-2.5">
+                <div className="p-2.5 border-r border-gray/10 my-col-10">
                     <div>11:30 - 14:00</div>
                     <div>Амарна</div>
                     <div>Амарна</div>
                 </div>
                 {/* Очиж авах */}
-                <div className="p-2.5 flex flex-col gap-y-2.5">
+                <div className="p-2.5 my-col-10">
                     <div>09:00 - 21:00</div>
                     <div>10;00 - 20:00</div>
                     <div>Амарна</div>

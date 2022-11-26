@@ -28,7 +28,7 @@ const OfficeList: React.FC<OfficeListProps> = ({
 
     return (
         <div className="relative w-full">
-            <div className="drag-indicator"></div>
+            <div className="bg-white w-[100px] mx-auto h-[5px] rounded-[2.5px] -mt-10"></div>
             {loading && (
                 <>
                     {/* <Overlay isOfficeList={true} />

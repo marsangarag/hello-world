@@ -123,8 +123,8 @@ export default function ProductCard({
                 </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-                <div className="pt-2.5 px-5 pb-5 flex flex-col gap-y-2.5 text-sm">
-                    <div className="flex flex-col gap-y-1.25">
+                <div className="pt-2.5 px-5 pb-5 my-col-10 text-sm">
+                    <div className="my-col-5">
                         <div>Орц:</div>
                         <div className="text-gray font-light text-xs">
                             {recipe}
@@ -133,7 +133,7 @@ export default function ProductCard({
                     {!outOfStock && (
                         <>
                             {portions && (
-                                <div className="flex flex-col gap-y-1.25">
+                                <div className="my-col-5">
                                     <div>Порц:</div>
                                     <div className="flex gap-x-1.25">
                                         {portions.map((portion: string) => {
@@ -161,7 +161,7 @@ export default function ProductCard({
                                 </div>
                             )}
                             {spices && (
-                                <div className="flex flex-col gap-y-1.25">
+                                <div className="my-col-5">
                                     <div>Халуун ногоо:</div>
                                     <div className="flex gap-x-1.25">
                                         {spices.map((spice: string) => {
@@ -185,7 +185,7 @@ export default function ProductCard({
                                     </div>
                                 </div>
                             )}
-                            <div className="flex flex-col gap-y-1.25">
+                            <div className="my-col-5">
                                 <div>Нэмэлт тайлбар:</div>
                                 <div className="relative">
                                     <input

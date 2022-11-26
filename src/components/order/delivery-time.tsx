@@ -22,12 +22,8 @@ export function DeliveryTime({
         setShow(true);
         setContent(
             <div className="fixed left-1/2 -translate-x-1/2 bottom-5 w-full z-30 px-5 text-center">
-                <div
-                    id="effect"
-                    data-aos="fade-up"
-                    className="flex flex-col gap-y-2.5"
-                >
-                    <div className="bg-white p-5 shadow-delivery rounded-2xl flex flex-col gap-y-2.5">
+                <div id="effect" data-aos="fade-up" className="my-col-10">
+                    <div className="bg-white p-5 shadow-delivery rounded-2xl my-col-10">
                         {times?.map((time) => {
                             return (
                                 <div

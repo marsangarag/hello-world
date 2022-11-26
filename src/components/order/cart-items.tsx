@@ -9,7 +9,7 @@ export function CartItems({ items }: { items?: any }) {
                     return (
                         <div
                             key={place.place}
-                            className="flex flex-col gap-y-2.5 pb-5 border-gray border-dashed border-b last:border-solid"
+                            className="my-col-10 pb-5 border-gray border-dashed border-b last:border-solid"
                         >
                             <div className="flex items-center gap-x-2.5">
                                 <HomeIcon />
@@ -21,7 +21,7 @@ export function CartItems({ items }: { items?: any }) {
                                         key={product.name}
                                         className="flex justify-between items-start"
                                     >
-                                        <div className="flex flex-col gap-y-1.25">
+                                        <div className="my-col-5">
                                             <div>{product.name}</div>
                                             <div className="text-gray font-light line-clamp-1">
                                                 {product.comment
@@ -50,7 +50,7 @@ export function CartItems({ items }: { items?: any }) {
                 })}
             </div>
             <div className="flex justify-between items-center">
-                <div className="flex flex-col gap-y-2.5">
+                <div className="my-col-10">
                     <div>Захиалгын дүн:</div>
                     <div>Хүргэлтийн төлбөр:</div>
                     <div className="font-medium">Нийт төлөх:</div>

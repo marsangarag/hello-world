@@ -540,3 +540,107 @@ export function Add() {
         </svg>
     );
 }
+
+export function CallIcon() {
+    return (
+        <svg
+            width="40"
+            height="40"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <rect width="40" height="40" rx="10" fill="#F5F5FA" />
+            <path
+                d="M19.5323 20.4777C23.5231 24.4685 24.4232 19.8476 26.9638 22.3881C29.4142 24.8386 30.8245 25.3287 27.7139 28.4293C27.3238 28.7394 24.8533 32.5001 16.1816 23.8284C7.50985 15.1467 11.2606 12.6762 11.5707 12.2861C14.6813 9.17548 15.1614 10.5858 17.6119 13.0362C20.1524 15.5768 15.5415 16.4869 19.5323 20.4677V20.4777Z"
+                stroke="#1E2335"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M22.5 14C24.27 14.34 25.66 15.73 26 17.5"
+                stroke="#1E2335"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M22.5 10.5C26.179 10.9083 29.0824 13.8158 29.5 17.5"
+                stroke="#1E2335"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+    );
+}
+
+export function AddPhotos() {
+    return (
+        <svg
+            width="60"
+            height="60"
+            viewBox="0 0 62 62"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <rect
+                x="1"
+                y="1"
+                width="60"
+                height="60"
+                rx="10"
+                stroke="#647382"
+                stroke-linecap="round"
+                stroke-dasharray="5 5"
+            />
+            <path
+                d="M33 43.5H17.3043C15.4787 43.5 14 42.0083 14 40.1667V21.8333C14 19.9917 15.4787 18.5 17.3043 18.5H21.0465"
+                stroke="#647382"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+            />
+            <path
+                d="M32 18.5L44.6316 18.5C46.4926 18.5 48 19.9917 48 21.8333V31"
+                stroke="#647382"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+            />
+            <path
+                d="M22.5 15H30.5"
+                stroke="#647382"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+            />
+            <path
+                d="M31 37.25C34.4518 37.25 37.25 34.4518 37.25 31C37.25 27.5482 34.4518 24.75 31 24.75C27.5482 24.75 24.75 27.5482 24.75 31C24.75 34.4518 27.5482 37.25 31 37.25Z"
+                stroke="#647382"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+            />
+            <path
+                d="M42 26.5C43.1046 26.5 44 25.6046 44 24.5C44 23.3954 43.1046 22.5 42 22.5C40.8954 22.5 40 23.3954 40 24.5C40 25.6046 40.8954 26.5 42 26.5Z"
+                fill="#F45844"
+            />
+            <path
+                d="M44 35.5V43.5"
+                stroke="#F45844"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+            />
+            <path
+                d="M48 39.5H40"
+                stroke="#F45844"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+            />
+        </svg>
+    );
+}

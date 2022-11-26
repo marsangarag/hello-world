@@ -25,7 +25,7 @@ export default function Category() {
 
     return (
         <>
-            <div className="flex flex-col gap-y-2.5 w-full h-[calc(100vh-50px)] overflow-hidden">
+            <div className="my-col-10 w-full h-[calc(100vh-50px)] overflow-hidden">
                 <div className="bg-white rounded-2.5xl shadow-delivery my-col-20 py-5">
                     <CategoryTab
                         tabs={categoryDummyData}
@@ -44,7 +44,7 @@ export default function Category() {
                         <Accordion
                             // allowMultipleExpanded
                             allowZeroExpanded
-                            className="flex flex-col gap-y-2.5 px-5"
+                            className="my-col-10 px-5"
                         >
                             {dummyProducts?.map((product) => {
                                 return (

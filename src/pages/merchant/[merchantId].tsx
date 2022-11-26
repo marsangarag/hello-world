@@ -47,10 +47,7 @@ export default function MerchantProductPage() {
                         />
                     </div>
                     <div className="relative w-full h-full overflow-y-scroll scrollbar-hide  -my-5 py-5">
-                        <Accordion
-                            allowZeroExpanded
-                            className="flex flex-col gap-y-2.5"
-                        >
+                        <Accordion allowZeroExpanded className="my-col-10">
                             {dummyProducts?.map((product) => {
                                 return (
                                     <ProductCard

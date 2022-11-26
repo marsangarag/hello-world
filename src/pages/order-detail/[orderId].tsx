@@ -10,12 +10,11 @@ import OrderStatus from "components/order/order-status";
 import OrderCard from "components/product/order-card";
 import CenteredSpin from "components/common/centered-spin";
 import TokiAPI from "lib/api/toki";
-import { toast } from "lib/utils/helpers";
 import { Item, OrderDetail } from "lib/types/order-detail";
-import { ModalContext } from "lib/context/modal";
 import LargeWhiteButton from "components/common/large-white-button";
 import SmallButton from "components/common/small-button";
 import { useAppState } from "lib/context/app";
+import { toast } from "react-toastify";
 
 const renderer = ({ hours, minutes, seconds, completed }: any) => {
     if (completed) {
@@ -55,7 +54,6 @@ const OrderDetail: NextPage = () => {
     const [data, setData] = useState<OrderDetail>();
     const [phoneVisible, setPhoneVisible] = useState(false);
     const [loading, setLoading] = useState(false);
-    const { handleModal }: any = useContext(ModalContext);
     let urlLink = "https://integration.upoint.mn/main/app_connect";
 
     useEffect(() => {
@@ -213,41 +211,41 @@ const OrderDetail: NextPage = () => {
                             Нийт :{" "}
                             <a
                                 className="ml-1"
-                                onClick={() =>
-                                    handleModal(
-                                        true,
-                                        "",
-                                        <div>
-                                            Та{" "}
-                                            <span className="font-medium">
-                                                U-point
-                                            </span>{" "}
-                                            апп дээр бүртгэл үүсгээд өөрийн түр
-                                            дансанд цугларсан оноог авах
-                                            боломжтой
-                                        </div>,
-                                        true,
-                                        <div className="flex">
-                                            <LargeWhiteButton
-                                                text="Хаах"
-                                                roundedClass="rounded-l-[15px]"
-                                                onClick={() => handleModal()}
-                                            />
+                                // onClick={() =>
+                                //     handleModal(
+                                //         true,
+                                //         "",
+                                //         <div>
+                                //             Та{" "}
+                                //             <span className="font-medium">
+                                //                 U-point
+                                //             </span>{" "}
+                                //             апп дээр бүртгэл үүсгээд өөрийн түр
+                                //             дансанд цугларсан оноог авах
+                                //             боломжтой
+                                //         </div>,
+                                //         true,
+                                //         <div className="flex">
+                                //             <LargeWhiteButton
+                                //                 text="Хаах"
+                                //                 roundedClass="rounded-l-[15px]"
+                                //                 onClick={() => handleModal()}
+                                //             />
 
-                                            <LargeWhiteButton
-                                                text="Апп нээх"
-                                                roundedClass="rounded-r-[15px]"
-                                                onClick={
-                                                    () => openAppStore(urlLink)
-                                                    // window.open(
-                                                    //     urlLink,
-                                                    //     "_blank"
-                                                    // )
-                                                }
-                                            />
-                                        </div>
-                                    )
-                                }
+                                //             <LargeWhiteButton
+                                //                 text="Апп нээх"
+                                //                 roundedClass="rounded-r-[15px]"
+                                //                 onClick={
+                                //                     () => openAppStore(urlLink)
+                                //                     // window.open(
+                                //                     //     urlLink,
+                                //                     //     "_blank"
+                                //                     // )
+                                //                 }
+                                //             />
+                                //         </div>
+                                //     )
+                                // }
                             >
                                 <img
                                     style={{ marginTop: "-3px" }}

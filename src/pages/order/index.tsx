@@ -23,6 +23,7 @@ import { DeliveryTime } from "components/order/delivery-time";
 import { Vat } from "components/order/vat";
 import { useModal } from "lib/context/modal";
 import { PermissionBox } from "components/common/permission-box";
+import ButtonComponent from "components/common/button";
 
 function toDate(dStr: any, format: any) {
     var now = new Date();
@@ -284,11 +285,8 @@ const Cart: NextPage = () => {
                     />
                 )}
             </div>
-            <div
-                onClick={onOrderClick}
-                className="bg-gradient-to-r from-gradient-start to-gradient-end w-5/6 rounded-md py-[10.5px] shadow-delivery mx-auto text-center text-white"
-            >
-                Захиалах
+            <div onClick={onOrderClick}>
+                <ButtonComponent text="Захиалах" />
             </div>
         </div>
     );

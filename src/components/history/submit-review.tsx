@@ -1,318 +1,146 @@
-import { useContext, useState, useEffect, useReducer } from "react";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { mutate } from "swr";
-import { yupResolver } from "@hookform/resolvers/yup";
+import GreadientMerchantCard from "components/cards/gradient-merchant-card";
+import ButtonComponent from "components/common/button";
+import { AddPhotos } from "components/icons";
+import { Merchant } from "lib/types/office.type";
+import { useRef } from "react";
+import { useState } from "react";
+import Drawer from "react-modern-drawer";
 
-import TokiAPI from "lib/api/toki";
-import { toast } from "lib/utils/helpers";
-import { ReviewType } from "lib/types/review-type";
-// import { ModalContext } from "lib/context/modal";
-import CenteredSpin from "components/common/centered-spin";
-import { useAppState } from "lib/context/app";
+export default function SubmitReview({ merchant }: { merchant: Merchant }) {
+    const [height, setHeight] = useState<string>("380px");
+    const [maxHeight, setMaxHeight] = useState<string>("50vh");
+    const [selectedEmoji, setSelectedEmoji] = useState<string>("");
+    const emojis = ["👎", "👍"];
+    const improvements = ["Амт", "Чанар", "Хоолны порц"];
+    const [selectedImprovements, setSelectedImprovements] = useState<string[]>(
+        []
+    );
 
-interface SubmitReviewProps {
-    orderId: string | string[];
-}
+    const commentRef = useRef<HTMLInputElement>(null);
+    const imageRef = useRef<HTMLInputElement>(null);
 
-const SubmitReview: React.FC<SubmitReviewProps> = ({ orderId }) => {
-    const [state, dispatch]: any = useAppState();
-    // const { handleModal }: any = useContext(ModalContext);
-    const [data, setData] = useState([]);
-    const [star, setStar] = useState(state.star);
-    const [types, setTypes] = useState<any>([]);
-    const [count, setCount] = useState<any>([]);
-    const [loading, setLoading] = useState(false);
-    console.log(state.star);
-    const validationSchema = yup.object().shape({
-        star: yup
-            .number()
-            .required("Оноо өгнө үү")
-            .default(state.star ? state.star : 5)
-            .nullable(),
-        type: yup.string().nullable(),
-        comment: yup.string(),
-    });
-
-    const apiUrl = `/coffee/app/order/merchant/${state.merchantId}?status=completed&page_size=10&page=1`;
-
-    useEffect(() => {
-        if (orderId) {
-            setLoading(true);
-
-            const fetchDatas = async () => {
-                try {
-                    const { data } = await TokiAPI.getReviewTypes();
-
-                    if (data.status_code === 0) {
-                        setData(data.data);
-                    } else {
-                        toast(data.message);
-                    }
-                } finally {
-                    setLoading(false);
-                }
-            };
-
-            fetchDatas();
-        }
-    }, [orderId]);
-
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        reset,
-        setValue,
-    } = useForm({ resolver: yupResolver(validationSchema) });
-
-    useEffect(() => {
-        if (state.star) {
-            setValue("star", state.star);
-        }
-    }, [state.star]);
-
-    useEffect(() => {
-        if (errors.star?.message) {
-            toast("Та одноос сонгож үнэлгээ өгнө үү");
-        }
-    }, [errors]);
-
-    const onSubmitHandler = async (values: any) => {
-        values["order_id"] = orderId;
-
-        let type = types;
-
-        let uniqueTypes = type.filter((c: any, index: any) => {
-            return type.indexOf(c) === index;
-        });
-
-        values["type"] = uniqueTypes.join(", ");
-
-        setLoading(true);
-
-        try {
-            const { data } = await TokiAPI.submitReview(values);
-
-            if (data?.status_code === 0) {
-            } else {
-                toast(data?.message);
-            }
-        } finally {
-            await mutate(apiUrl);
-            setLoading(false);
-            // handleModal();
-            dispatch({
-                type: "star",
-                star: 0,
-            });
-            reset();
+    const onSubmitReview = () => {
+        if (imageRef?.current?.files) {
+            const formData = new FormData();
+            formData.append("review-image", imageRef.current?.files[0]);
         }
     };
-
-    const renderClickableStars = () => {
-        const stars: any[] = [];
-
-        for (let i = 1; i <= 5; i++) {
-            let item;
-
-            item = (
-                <li
-                    key={i}
-                    className="cursor-pointer"
-                    onClick={() => (setStar(i), types.splice(0))}
-                >
-                    {star > i - 1 ? (
-                        <>
-                            <input
-                                id={`star_${i}`}
-                                className="sr-only peer"
-                                type="radio"
-                                value={i}
-                                {...register("star")}
-                            />
-                            <label htmlFor={`star_${i}`}>
-                                <span className="ml-1 text-lg icon-Star---Yellow-icon"></span>
-                            </label>
-                        </>
-                    ) : (
-                        <>
-                            <input
-                                id={`star_${i}`}
-                                className="sr-only peer"
-                                type="radio"
-                                value={i}
-                                {...register("star")}
-                            />
-                            <label htmlFor={`star_${i}`}>
-                                <span className="ml-1 text-lg icon-Star---Gray-icon"></span>
-                            </label>
-                        </>
-                    )}
-                </li>
-            );
-
-            stars.push(item);
-        }
-
-        return stars;
-    };
-
-    function contains(array: any, type: string) {
-        for (let i = 0; i < array.length; i++) {
-            if (array[i] === type) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // function arrayAddElement(value: string) {
-    //     types && types.indexOf(String(value)) !== -1
-    //         ? setTypes((current: any) =>
-    //               current.filter((element: any) => {
-    //                   return element !== value;
-    //               })
-    //           )
-    //         : setTypes((current: any) => [...current, value]);
-    //     console.log("test", types);
-    // }
-
-    function arrayAddElement(value: string) {
-        types && types.includes(String(value)) === true
-            ? setTypes((current: any) =>
-                  current.filter((element: any) => {
-                      return element !== value;
-                  })
-              )
-            : setTypes((current: any) => [...current, value]);
-    }
 
     return (
-        <>
-            {loading && (
-                <>
-                    <div
-                        className={`fixed h-full  w-full top-0 overflow-auto scrollbar-hide bg-black z-50 bg-opacity-25`}
-                    />
-                    <CenteredSpin size={8} />
-                </>
-            )}
-            <form
-                id="submit-review-form"
-                onSubmit={handleSubmit(onSubmitHandler)}
-                className="w-full divide-y divide-dashed"
+        <div className="w-full h-full relative">
+            <Drawer
+                open={true}
+                direction="bottom"
+                enableOverlay={false}
+                size={2}
+                style={{
+                    height: height,
+                    maxHeight: maxHeight,
+                }}
+                className={`p-5 rounded-t-2.5xl bg-white my-col-20`}
             >
-                <div>
-                    <div className="flex justify-between w-full ">
-                        <p className="text-sm font-light break-normal leading-loose text-[#647382]">
-                            {!star
-                                ? "Үнэлнэ үү"
-                                : star > 3
-                                ? "Үйлчилгээ сайн"
-                                : star < 3
-                                ? "Үйлчилгээ муу"
-                                : star == 3
-                                ? "Үйлчилгээ дунд"
-                                : "Үнэлнэ үү"}{" "}
-                            :
-                        </p>
-
-                        <ul className="flex justify-center">
-                            {renderClickableStars()}
-                        </ul>
+                <div className="absolute bg-white w-[100px] mx-auto h-[5px] rounded-[2.5px] -top-3 left-1/2 -translate-x-1/2"></div>
+                <div data-aos="fade-up" className="my-col-20">
+                    <div className="rounded-2xl min-h-[160px] overflow-hidden shadow-delivery relative">
+                        <img
+                            src={merchant.logo}
+                            className="h-40 min-w-full"
+                            alt={merchant.name}
+                        />
+                        <div className="absolute z-20 left-3.75 bottom-3.75 text-white my-col-5 items-start">
+                            <div className="text-sm">{`${merchant.name} (${merchant.temporary_closed})`}</div>
+                        </div>
+                        <div className="absolute h-1/2 w-full bg-gradient-to-b bottom-0 left-0 from-main/0 to-main "></div>
                     </div>
-                    <p className="mt-1 mb-3 text-xs italic text-right text-red-500">
-                        {errors.star?.message}
-                    </p>
+                    <div className="font-medium text-center px-20">
+                        Танд хоолны амт, чанар таалагдсан уу?
+                    </div>
+                    <div className="flex justify-center items-center gap-x-[45px]">
+                        {emojis.map((emoji) => {
+                            return (
+                                <div
+                                    onClick={() => {
+                                        setSelectedEmoji(emoji);
+                                        setHeight("100%");
+                                        setMaxHeight("95vh");
+                                    }}
+                                    className={
+                                        "bg-[#F5F5F5] rounded-full px-3.75 py-[17px] relative " +
+                                        (selectedEmoji === emoji &&
+                                            "rounded-gradient-border")
+                                    }
+                                >
+                                    <div className="text-[18.2px] leading-[21px]">
+                                        {emoji}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <div className="text-sm  my-col-15">
+                        <div>Сайжруулах зүйл нь юу байсан бэ?</div>
+                        <div className="flex justify-between items-center w-full gap-x-2.5">
+                            {improvements.map((item) => {
+                                return (
+                                    <div
+                                        onClick={() => {
+                                            if (
+                                                !selectedImprovements.includes(
+                                                    item
+                                                )
+                                            ) {
+                                                setSelectedImprovements([
+                                                    ...selectedImprovements,
+                                                    item,
+                                                ]);
+                                            } else {
+                                                setSelectedImprovements(
+                                                    selectedImprovements.filter(
+                                                        (improvement) =>
+                                                            improvement !== item
+                                                    )
+                                                );
+                                            }
+                                        }}
+                                        className={
+                                            "rounded-md w-full bg-[#F5f5f5] py-[9px]  font-light text-center relative " +
+                                            (selectedImprovements.includes(
+                                                item
+                                            ) && "gradient-border")
+                                        }
+                                    >
+                                        {item}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                    <div className="my-col-15">
+                        <div>Нэмэлт саналт хүсэлт</div>
+                        <div className="my-col-10">
+                            <input
+                                ref={commentRef}
+                                type="text"
+                                placeholder="Хүсэлт"
+                                className="bg-[#f5f5f5] rounded-md py-[9px] px-5 placeholder:font-light text-sm"
+                            />
+                            <label htmlFor="review-photo" className="w-[60px]">
+                                <AddPhotos />
+                                <input
+                                    accept="image/*"
+                                    type="file"
+                                    id="review-photo"
+                                    className="hidden"
+                                    ref={imageRef}
+                                />
+                            </label>
+                        </div>
+                    </div>
+                    <div onClick={onSubmitReview} className="px-7">
+                        <ButtonComponent text="Болсон" />
+                    </div>
                 </div>
-
-                <div className="pt-[20px]">
-                    <ul className="flex flex-wrap ">
-                        {data &&
-                            data.map(
-                                (reviewType: ReviewType, index: number) =>
-                                    reviewType.star == star &&
-                                    star != 3 && (
-                                        <ul
-                                            className="flex flex-wrap "
-                                            key={index}
-                                        >
-                                            {reviewType.choices &&
-                                                reviewType.choices.map(
-                                                    (
-                                                        reviewType: ReviewType,
-                                                        index: number
-                                                    ) => {
-                                                        return (
-                                                            <li
-                                                                key={index}
-                                                                className="relative mb-2 mr-2 cursor-pointer w-fit"
-                                                            >
-                                                                {types &&
-                                                                types.includes(
-                                                                    String(
-                                                                        reviewType
-                                                                    )
-                                                                ) === true ? (
-                                                                    <div
-                                                                        className={`border-[#1E2335] text-[#1E2335] ring-[#1E2335]  ring-2 font-md  border-transparent text-sm flex  font-light  border rounded-[10px] cursor-pointer   px-[15px] py-[10px] hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-2 peer-checked:font-md  peer-checked:border-transparent `}
-                                                                        onClick={() => {
-                                                                            arrayAddElement(
-                                                                                String(
-                                                                                    reviewType
-                                                                                )
-                                                                            );
-                                                                        }}
-                                                                    >
-                                                                        {" "}
-                                                                        {
-                                                                            reviewType
-                                                                        }
-                                                                    </div>
-                                                                ) : (
-                                                                    <div
-                                                                        className={`border-[#a5aeb8]  text-[#a5aeb8] flex  font-light  border rounded-[10px] cursor-pointer   px-[15px] py-[10px] hover:bg-gray-50 peer-checked:ring-[#1E2335]  peer-checked:text-[#1E2335] peer-checked:ring-2 peer-checked:font-md  peer-checked:border-transparent text-sm`}
-                                                                        onClick={() => {
-                                                                            arrayAddElement(
-                                                                                String(
-                                                                                    reviewType
-                                                                                )
-                                                                            );
-                                                                        }}
-                                                                    >
-                                                                        {" "}
-                                                                        {
-                                                                            reviewType
-                                                                        }
-                                                                    </div>
-                                                                )}
-                                                            </li>
-                                                        );
-                                                    }
-                                                )}
-                                        </ul>
-                                    )
-                            )}
-                    </ul>
-
-                    <p className="mt-1 mb-3 text-xs italic text-left text-red-500">
-                        {errors.type?.message}
-                    </p>
-                    <input
-                        {...register("comment")}
-                        placeholder="Нэмэлт санал гомдол бичих"
-                        type="input"
-                        autoComplete="off"
-                        className="w-full px-[15px] py-[10px] bg-transparent  border-[#B3BFC6] rounded-xl border-[1px]  focus:ring-0  font-light text-sm"
-                    />
-                    <p className="mt-1 mb-3 text-xs italic text-left text-red-500">
-                        {errors.comment?.message}
-                    </p>
-                </div>
-            </form>
-        </>
+            </Drawer>
+        </div>
     );
-};
-
-export default SubmitReview;
+}
