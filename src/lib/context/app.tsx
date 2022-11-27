@@ -46,6 +46,13 @@ const reducer = (state: any, action: any) => {
 
             return newState;
         }
+
+        case "activeTab": {
+            const newState = { ...state, activeTab: action.activeTab };
+            saveToLocal(newState);
+
+            return newState;
+        }
         case "merchantName": {
             const newState = { ...state, merchantName: action.merchantName };
             saveToLocal(newState);

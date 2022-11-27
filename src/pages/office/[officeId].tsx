@@ -1,5 +1,5 @@
 import Recommended from "components/cards/recommended-card";
-import GradientMerchantCard from "components/cards/gradient-merchant-card";
+import GradientMerchantCard from "components/merchant/gradient-merchant-card";
 import CenteredSpin from "components/common/centered-spin";
 import {
     CloseButton,

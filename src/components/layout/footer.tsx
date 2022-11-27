@@ -2,8 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import FooterButton from "components/common/footer-button";
-import FooterCartButton from "components/common/footer-cart-button";
-import MediumButton from "components/common/medium-button";
 import { useAppState } from "lib/context/app";
 
 const Footer = ({ routerPathName }: any) => {
@@ -46,61 +44,6 @@ const Footer = ({ routerPathName }: any) => {
                         </div>
                     </Link>
                 </>
-
-                //  (
-                //     <>
-                //         {state.cartCount > 0 ? (
-                //             <>
-                //                 <Link
-                //                     href={`/cart/${merchantId}`}
-                //                 >
-                //                     <a>
-                //                         <div className="flex content-center justify-center">
-                //                             <FooterCartButton state={state} />
-                //                         </div>
-                //                     </a>
-                //                 </Link>
-                //                 <Link
-                //                     href={`/cart/${merchantId}`}
-                //                 >
-                //                     <a>
-                //                         <div className="flex content-center justify-center">
-                //                             <MediumButton text="Захиалах" />
-                //                         </div>
-                //                     </a>
-                //                 </Link>
-                //             </>
-                //         ) : (
-                //             <>
-                //                 {" "}
-                //                 <a
-                //                     onClick={() =>
-                //                         toast(
-                //                             "Та захиалах бүтээгдэхүүнээ сонгоно уу"
-                //                         )
-                //                     }
-                //                 >
-                //                     <div className="flex content-center justify-center">
-                //                         <FooterCartButton state={state} />
-                //                     </div>
-                //                 </a>
-                //                 <a
-                //                     onClick={() =>
-                //                         toast(
-                //                             "Та захиалах бүтээгдэхүүнээ сонгоно уу"
-                //                         )
-                //                     }
-                //                 >
-                //                     <div className="flex content-center justify-center">
-                //                         <MediumButton text="Захиалах" />
-                //                     </div>
-                //                 </a>
-                //             </>
-
-                //         )
-                //         }
-                //     </>
-                // )
             }
         </footer>
     );

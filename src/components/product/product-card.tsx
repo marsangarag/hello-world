@@ -1,5 +1,7 @@
 import ButtonComponent from "components/common/button";
+import { ImageModal } from "components/common/image-modal";
 import { ArrowDown, EditIcon } from "components/icons";
+import { useModal } from "lib/context/modal";
 import { formatPrice } from "lib/utils/helpers";
 import { useContext, useRef, useState } from "react";
 import {
@@ -38,13 +40,18 @@ export default function ProductCard({
         spices ? spices[0] : ""
     );
 
+    const [show, setShow, content, setContent] = useModal();
+
     const comment = useRef<HTMLInputElement>(null);
 
     const onAddClick = () => {
         console.log(selectedPortion, selectedSpice, comment.current?.value);
     };
 
-    const onImageClick = () => {};
+    const onImageClick = () => {
+        setShow(true);
+        setContent(<ImageModal images={[img]} />);
+    };
     return (
         <AccordionItem className="bg-white rounded-2xl overflow-hidden shadow-delivery">
             <AccordionItemHeading>

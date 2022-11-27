@@ -1,8 +1,8 @@
-import GreadientMerchantCard from "components/cards/gradient-merchant-card";
+import GreadientMerchantCard from "components/merchant/gradient-merchant-card";
 import ButtonComponent from "components/common/button";
 import { AddPhotos } from "components/icons";
 import { Merchant } from "lib/types/office.type";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useState } from "react";
 import Drawer from "react-modern-drawer";
 
@@ -15,6 +15,7 @@ export default function SubmitReview({ merchant }: { merchant: Merchant }) {
     const [selectedImprovements, setSelectedImprovements] = useState<string[]>(
         []
     );
+    const [images, setImages] = useState<any[]>([]);
 
     const commentRef = useRef<HTMLInputElement>(null);
     const imageRef = useRef<HTMLInputElement>(null);
@@ -23,6 +24,13 @@ export default function SubmitReview({ merchant }: { merchant: Merchant }) {
         if (imageRef?.current?.files) {
             const formData = new FormData();
             formData.append("review-image", imageRef.current?.files[0]);
+        }
+    };
+
+    const onImageUpload = () => {
+        if (imageRef.current?.files) {
+            const image = URL.createObjectURL(imageRef.current.files[0]);
+            setImages([...images, image]);
         }
     };
 
@@ -124,16 +132,32 @@ export default function SubmitReview({ merchant }: { merchant: Merchant }) {
                                 placeholder="Хүсэлт"
                                 className="bg-[#f5f5f5] rounded-md py-[9px] px-5 placeholder:font-light text-sm"
                             />
-                            <label htmlFor="review-photo" className="w-[60px]">
-                                <AddPhotos />
-                                <input
-                                    accept="image/*"
-                                    type="file"
-                                    id="review-photo"
-                                    className="hidden"
-                                    ref={imageRef}
-                                />
-                            </label>
+                            <div className="flex gap-x-2.5 items-center">
+                                {images.length > 0 &&
+                                    images.map((image) => {
+                                        return (
+                                            <img
+                                                className="w-[60px] h-[60px] rounded-md"
+                                                src={image}
+                                                alt={image}
+                                            />
+                                        );
+                                    })}
+                                <label
+                                    htmlFor="review-photo"
+                                    className="w-[60px]"
+                                >
+                                    <AddPhotos />
+                                    <input
+                                        accept="image/*"
+                                        type="file"
+                                        id="review-photo"
+                                        className="hidden"
+                                        onChange={onImageUpload}
+                                        ref={imageRef}
+                                    />
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div onClick={onSubmitReview} className="px-7">

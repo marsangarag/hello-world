@@ -644,3 +644,51 @@ export function AddPhotos() {
         </svg>
     );
 }
+
+export function UpointGreen() {
+    return (
+        <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M9.5 0.5H1.5C0.947715 0.5 0.5 0.947715 0.5 1.5V9.5C0.5 10.0523 0.947715 10.5 1.5 10.5H9.5C10.0523 10.5 10.5 10.0523 10.5 9.5V1.5C10.5 0.947715 10.0523 0.5 9.5 0.5Z"
+                stroke="#78C81E"
+                stroke-miterlimit="10"
+            />
+            <path
+                d="M2.5 6C2.5 6 3.2 8 5.5 8C7.8 8 8.5 6 8.5 6"
+                stroke="#78C81E"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+            />
+        </svg>
+    );
+}
+
+export function Upoint() {
+    return (
+        <svg
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M9.5 0.5H1.5C0.947715 0.5 0.5 0.947715 0.5 1.5V9.5C0.5 10.0523 0.947715 10.5 1.5 10.5H9.5C10.0523 10.5 10.5 10.0523 10.5 9.5V1.5C10.5 0.947715 10.0523 0.5 9.5 0.5Z"
+                stroke="#1E2335"
+                stroke-miterlimit="10"
+            />
+            <path
+                d="M2.5 6C2.5 6 3.2 8 5.5 8C7.8 8 8.5 6 8.5 6"
+                stroke="#1E2335"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+            />
+        </svg>
+    );
+}

@@ -6,42 +6,39 @@ interface OrderCardProps {
 }
 
 const OrderCard: React.FC<OrderCardProps> = ({ item }) => (
-    <div className="flex items-center py-3">
-        <div className=" w-[50px] shrink-0">
+    <>
+        <div className="bg-white rounded-2xl flex justify-start gap-x-3.75 items-start">
             <img
                 src={item.product.image}
                 alt={item.product.name}
-                className="w-[50px] h-[50px] object-cover rounded-2xl"
+                className="rounded-2xl w-[120px] h-[120px]"
             />
-        </div>
-        <div className="flex flex-grow ml-5 ">
-            <div className="flex-grow mr-3 ">
-                <div className="break-all text-md text-slate-700">
-                    {item.product.name}
+            <div className="my-col-5 py-3.75 pr-5 w-full">
+                <div className="font-medium flex justify-between items-center">
+                    <div>{item.product.name}</div>
+                    <div>x{item.qty}</div>
                 </div>
-                <div className="text-sm font-light text-right break-normal text-[#647382] flex">
+                <div className="flex justify-start gap-x-1 items-center">
+                    {item.presale_price && (
+                        <div className="line-through text-xs font-light text-gray">
+                            {formatPrice(item.presale_price)} ₮
+                        </div>
+                    )}
+                    <div className="text-sm">{formatPrice(item.price)} ₮</div>
+                </div>
+                <div className="text-xs font-light text-gray flex gap-x-0.5">
                     {item.product_variant.options &&
                         item.product_variant.options.map(
                             (option: any, index: number) => (
-                                <p key={index} className="mr-2">
-                                    {option.value}
-                                </p>
+                                <div key={index}>{option.value}</div>
                             )
                         )}
+                    {/* In case of comments
+                    {item.comments && `(${item.comments})`} */}
                 </div>
             </div>
-            <div className="shrink-0">
-                <p className="text-right text-md text-slate-700">
-                    {formatPrice(item.price)} ₮
-                </p>
-
-                <p className="text-sm font-light text-right break-normal text-[#647382]">
-                    x{item.qty}
-                    {item.is_cancelled && " (Цуцлагдсан)"}
-                </p>
-            </div>
         </div>
-    </div>
+    </>
 );
 
 export default OrderCard;

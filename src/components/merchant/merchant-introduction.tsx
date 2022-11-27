@@ -1,3 +1,5 @@
+import { ImageModal } from "components/common/image-modal";
+import { useModal } from "lib/context/modal";
 import { Merchant } from "lib/types/office.type";
 
 export default function MerchantIntroduction({
@@ -5,15 +7,35 @@ export default function MerchantIntroduction({
 }: {
     merchant: Merchant;
 }) {
+    const [show, setShow, content, setContent] = useModal();
+    const images = [
+        "placeholder.png",
+        "placeholder.png",
+        "placeholder.png",
+        "placeholder.png",
+        "placeholder.png",
+    ];
+
+    const onImageClick = () => {
+        setShow(true);
+        setContent(<ImageModal images={images} />);
+    };
     return (
         <div className="my-col-15">
             <div className="font-medium">Танилцуулга</div>
-            <div className="flex gap-x-[1px] overflow-x-scroll scrollbar-hide -mx-5 px-5">
-                <img
-                    src={`${merchant.logo}`}
-                    alt={merchant.name}
-                    className="w-[83px] h-[83px] rounded-md"
-                />
+            <div
+                onClick={onImageClick}
+                className="flex gap-x-[1px] overflow-x-scroll scrollbar-hide -mx-5 px-5"
+            >
+                {images?.map((image) => {
+                    return (
+                        <img
+                            src={`${merchant.logo}`}
+                            alt={merchant.name}
+                            className="w-[83px] h-[83px] rounded-md"
+                        />
+                    );
+                })}
             </div>
             <div className="my-col-20 font-light text-justify text-sm">
                 <div>

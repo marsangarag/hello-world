@@ -47,9 +47,9 @@ const PendingCard: React.FC<PendingCardProps> = ({ item, id, scrollRef }) => {
         new Date(item.delivery_estimate) > new Date() ? false : true
     );
     const onViewDetail = (event: any) => {
-        if (event.target === event.currentTarget) {
-            router.push(`/order-detail/${item._id}`);
-        }
+        // if (event.target === event.currentTarget) {
+        router.push(`/order-detail/${item._id}?activeTab=Идэвхтэй`);
+        // }
     };
 
     const onPayClick = () => {};
@@ -63,10 +63,12 @@ const PendingCard: React.FC<PendingCardProps> = ({ item, id, scrollRef }) => {
             <div
                 id={id}
                 ref={scrollRef}
-                onClick={onViewDetail}
                 className="bg-white z-10 rounded-2xl shadow-delivery py-4 px-5 my-col-15"
             >
-                <div className="flex justify-between items-stretch">
+                <div
+                    onClick={onViewDetail}
+                    className="flex justify-between items-stretch"
+                >
                     <div className="my-col-5 text-xs font-light text-gray">
                         <div className="text-sm font-medium text-main">
                             Захиалга {item.order_no}

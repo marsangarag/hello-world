@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import LargeWhiteButton from "components/common/large-white-button";
 import { Merchant, Timetable } from "lib/types/office.type";
 import { useAppState } from "lib/context/app";
 import { renderStars } from "lib/utils/helpers";

@@ -17,7 +17,7 @@ export default function MerchantTimetable({
                 </div>
                 <div className="p-2.5 border-b border-gray/10">Очиж авах</div>
                 <div className="p-2.5 border-r border-gray/10 my-col-10">
-                    <div>Даваа - Баасан</div>
+                    <div className="-mx-1">Даваа-Баасан</div>
                     <div>Бямба</div>
                     <div>Ням</div>
                 </div>

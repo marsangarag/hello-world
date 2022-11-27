@@ -1,5 +1,5 @@
-import GreadientMerchantCard from "components/cards/gradient-merchant-card";
-import ProductCard from "components/cards/product-card";
+import GreadientMerchantCard from "components/merchant/gradient-merchant-card";
+import ProductCard from "components/product/product-card";
 import FloatButton from "components/cart/float-button";
 import CategoryTab from "components/category/tab";
 import CenteredSpin from "components/common/centered-spin";

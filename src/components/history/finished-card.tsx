@@ -52,6 +52,10 @@ const FinishedCard: React.FC<FinishedCardProps> = ({ item, id, scrollRef }) => {
         setContent(<SubmitReview merchant={merchant} />);
     };
 
+    const onCardClick = () => {
+        router.push(`/order-detail/${item._id}?activeTab=Дууссан`);
+    };
+
     return (
         <>
             <div
@@ -59,7 +63,10 @@ const FinishedCard: React.FC<FinishedCardProps> = ({ item, id, scrollRef }) => {
                 id={id}
                 ref={scrollRef}
             >
-                <div className="flex justify-between items-stretch">
+                <div
+                    onClick={onCardClick}
+                    className="flex justify-between items-stretch"
+                >
                     <div className="my-col-5 text-xs font-light text-gray">
                         <div className="text-sm font-medium text-main">
                             Захиалга {item.order_no}

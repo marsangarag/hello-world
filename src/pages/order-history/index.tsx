@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { mutate } from "swr";
 import PullToRefresh from "react-simple-pull-to-refresh";
 
-import LargeWhiteButton from "components/common/large-white-button";
 import FinishedList from "components/history/finished-list";
 import OngoingList from "components/history/ongoing-list";
 import { useAppState } from "lib/context/app";
@@ -44,6 +43,9 @@ const OrderHistory: NextPage = () => {
         // if (state.navId) {
         //     executeScroll();
         // }
+        if (state.activeTab) {
+            setActiveTab(state.activeTab);
+        }
         if (paymentStatusCode) {
             if (paymentStatusCode == 200) {
                 // handleModal(
@@ -117,8 +119,12 @@ const OrderHistory: NextPage = () => {
                 })}
             </div>
             <div className="my-col-10">
-                {activeTab === "Идэвхтэй" && <OngoingList />}
-                {activeTab === "Дууссан" && <FinishedList />}
+                {activeTab === "Идэвхтэй" && (
+                    <OngoingList scrollRef={scrollRef} />
+                )}
+                {activeTab === "Дууссан" && (
+                    <FinishedList scrollRef={scrollRef} />
+                )}
             </div>
         </div>
     );

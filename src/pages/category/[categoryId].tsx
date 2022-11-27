@@ -1,4 +1,4 @@
-import ProductCard from "components/cards/product-card";
+import ProductCard from "components/product/product-card";
 import FloatButton from "components/cart/float-button";
 import CategoryProduct from "components/category/product-list";
 import ProductTab from "components/category/product-tab";

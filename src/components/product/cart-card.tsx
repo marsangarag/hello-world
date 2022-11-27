@@ -4,7 +4,6 @@ import { Item } from "lib/types/cart.type";
 import { formatPrice, calcTimeDiff } from "lib/utils/helpers";
 import TokiAPI from "lib/api/toki";
 import { useAppState } from "lib/context/app";
-import { toast } from "lib/utils/helpers";
 
 interface OrderCardProps {
     item: Item;

@@ -6,9 +6,10 @@ import { mutate } from "swr";
 import SmallButton from "components/common/small-button";
 import { ApplicableOption, Product } from "lib/types/merchant-product.type";
 import TokiAPI from "lib/api/toki";
-import { formatPrice, toast } from "lib/utils/helpers";
+import { formatPrice } from "lib/utils/helpers";
 import { useAppState } from "lib/context/app";
 import { cartAnimation } from "lib/utils/cart-animation";
+import { toast } from "react-toastify";
 
 let addToCartEvent: any;
 

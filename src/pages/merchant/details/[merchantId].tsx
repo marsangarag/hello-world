@@ -1,5 +1,4 @@
 import FloatButton from "components/cart/float-button";
-import CategoryTitle from "components/common/category-title";
 import MerchantIntroduction from "components/merchant/merchant-introduction";
 import MerchantReview from "components/merchant/review";
 import MerchantTimetable from "components/merchant/timetable";
@@ -30,7 +29,6 @@ export default function MerchantDetailPage() {
                     <MerchantReview />
                 </div>
             )}
-            <FloatButton />
         </>
     );
 }
