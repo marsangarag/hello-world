@@ -121,7 +121,7 @@ const Index: NextPage = () => {
                             maxHeight: maxHeight,
                             background: "#F5F5FA",
                         }}
-                        className={`p-5 rounded-t-[20px] flex`}
+                        className={`p-5 rounded-t-[20px] relative`}
                     >
                         {noResults ? (
                             <OfficeList

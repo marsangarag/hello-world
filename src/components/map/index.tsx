@@ -8,9 +8,6 @@ import {
 import { GeolocatedProps, geolocated } from "react-geolocated";
 import Office, { Merchant } from "lib/types/office.type";
 import { useAppState } from "lib/context/app";
-// import { ModalContext } from "lib/context/modal";
-import CoffeeShopCard from "components/coffee-shop/card";
-import LargeWhiteButton from "components/common/large-white-button";
 import { useRouter } from "next/router";
 
 const containerStyle = {

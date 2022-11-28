@@ -5,11 +5,8 @@ import { useRouter } from "next/router";
 import Countdown from "react-countdown";
 
 import CartCard from "components/product/cart-card";
-import MediumButton from "components/common/medium-button";
 import SearchInput from "components/search-shop/search-input";
 import CenteredSpin from "components/common/centered-spin";
-import LargeWhiteButton from "components/common/large-white-button";
-import NewOrder from "components/order/new-order";
 import TokiAPI from "lib/api/toki";
 import { formatPrice, calcTimeDiff } from "lib/utils/helpers";
 // import Cart, { Item } from "lib/types/cart.type";

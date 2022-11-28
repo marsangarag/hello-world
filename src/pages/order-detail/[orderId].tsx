@@ -7,13 +7,15 @@ import Countdown, { zeroPad } from "react-countdown";
 import { calcTimeDiff, formatPrice } from "lib/utils/helpers";
 import { Status } from "lib/types/order.type";
 import OrderStatus from "components/order/order-status";
-import OrderCard from "components/product/order-card";
+import OrderCard from "components/order/order-card";
 import CenteredSpin from "components/common/centered-spin";
 import TokiAPI from "lib/api/toki";
 import { Item, OrderDetail } from "lib/types/order-detail";
 import { useAppState } from "lib/context/app";
 import { toast } from "react-toastify";
 import { Upoint, UpointGreen } from "components/icons";
+import { GoogleMap } from "@react-google-maps/api";
+import OrderMap from "components/order/map";
 
 const renderer = ({ hours, minutes, seconds, completed }: any) => {
     if (completed) {
@@ -171,7 +173,7 @@ const OrderDetail: NextPage = () => {
                     </div>
                 </div>
                 {/* Here comes map */}
-                {statusIndex === 2 && <></>}
+                {statusIndex === 0 && <OrderMap />}
                 <div className="my-col-15">
                     <div className="font-medium">Захиалгын мэдээлэл</div>
                     <div className="my-col-10">

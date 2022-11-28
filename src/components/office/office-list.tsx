@@ -1,5 +1,4 @@
 import CenteredSpin from "components/common/centered-spin";
-import Overlay from "components/common/overlay";
 import OfficeCard from "./card";
 import Office from "lib/types/office.type";
 
@@ -27,23 +26,13 @@ const OfficeList: React.FC<OfficeListProps> = ({
     };
 
     return (
-        <div className="relative w-full">
-            <div className="bg-white w-[100px] mx-auto h-[5px] rounded-[2.5px] -mt-10"></div>
-            {loading && (
-                <>
-                    {/* <Overlay isOfficeList={true} />
-                    <CenteredSpin size={8} /> */}
-                </>
-            )}
+        <div>
+            <div className="absolute bg-white w-[100px] mx-auto h-[5px] rounded-[2.5px] -top-3 left-1/2 -translate-x-1/2"></div>
             <div
-                className="mt-[-20px] pt-[20px] mx-[-20px] px-[20px]"
                 onTouchEnd={() => heightHandler()}
+                className="text-center font-medium mb-5"
             >
-                {title && (
-                    <h3 className="text-center text-[#1E2335] text-base font-medium mb-5">
-                        {title}
-                    </h3>
-                )}
+                {title}
             </div>
             <div
                 className={`scrollbar-hide h-full pb-6 px-5 mx-[-20px] pt-5 mt-[-20px] ${

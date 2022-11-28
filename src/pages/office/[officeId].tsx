@@ -28,6 +28,7 @@ export default function Office() {
     const [loading, setLoading] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>("");
     const [searchProducts, setSearchProducts] = useState<any[]>([]);
+    const [showFilters, setShowFilters] = useState<boolean>(false);
     const debouncedValue = useDebounce(searchValue);
 
     const filterNames = [
@@ -134,11 +135,37 @@ export default function Office() {
                         <div>
                             <div className="flex justify-between pb-[15px] items-center">
                                 <div className="font-medium">Бүгд</div>
-                                <div className="flex gap-x-2.5 items-center">
+                                <div
+                                    onClick={() => setShowFilters(!showFilters)}
+                                    className="flex gap-x-2.5 items-center relative"
+                                >
                                     <div className="text-xs font-light text-gray">
                                         {activeFilter}
                                     </div>
                                     <FilterIcon />
+                                    {showFilters && (
+                                        <div className="absolute z-40 right-0 top-6 rounded-b-md px-1.5 my-col-5 bg-[#f5f5f5] text-xs font-light text-gray">
+                                            {filterNames
+                                                ?.filter(
+                                                    (item) =>
+                                                        item !== activeFilter
+                                                )
+                                                ?.map((filter) => {
+                                                    return (
+                                                        <div
+                                                            onClick={() =>
+                                                                setActiveFilter(
+                                                                    filter
+                                                                )
+                                                            }
+                                                            className="border-b  border-dashed border-gray last:border-none pb-1"
+                                                        >
+                                                            {filter}
+                                                        </div>
+                                                    );
+                                                })}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                             <div className="my-col-10">

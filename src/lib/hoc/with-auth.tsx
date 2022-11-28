@@ -39,7 +39,7 @@ const WithAuth = ({ children }: any) => {
                         );
                         localStorage.setItem(
                             "locationRange",
-                            data.data.location_range
+                            data.data.location_range || "1000"
                         );
                         localStorage.setItem(
                             "deliveryOptions",
