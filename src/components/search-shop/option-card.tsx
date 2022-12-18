@@ -1,7 +1,6 @@
 import { useContext } from "react";
 
 import CoffeeShopCard from "components/coffee-shop/card";
-import LargeWhiteButton from "components/common/large-white-button";
 import Office, { Merchant } from "lib/types/office.type";
 import { useAppState } from "lib/context/app";
 import { useRouter } from "next/router";
@@ -22,7 +21,7 @@ const OptionCard: React.FC<OptionCardProps> = ({ office }) => {
                     type: "merchants",
                     merchants: office.merchants,
                 });
-                dispatch({ type: "officeId", officeId: office._id });
+                dispatch({ type: "officeId", officeId: office.id });
                 dispatch({
                     type: "officeName",
                     officeName: office.name,
@@ -30,9 +29,9 @@ const OptionCard: React.FC<OptionCardProps> = ({ office }) => {
 
                 dispatch({
                     type: "numberOfStorey",
-                    numberOfStorey: office.number_of_storey,
+                    numberOfStorey: office.floor,
                 });
-                router.push(`/office/${office._id}`);
+                router.push(`/office/${office.id}`);
             }}
         >
             <p className="mr-1 text-sm text-normal">{office.name}</p>

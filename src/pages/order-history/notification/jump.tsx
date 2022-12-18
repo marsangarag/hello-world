@@ -4,19 +4,17 @@ import { useRouter } from "next/router";
 import { mutate } from "swr";
 
 import { useAppState } from "lib/context/app";
-import LargeWhiteButton from "components/common/large-white-button";
-import { toast } from "lib/utils/helpers";
 import TokiAPI from "lib/api/toki";
-import { ModalContext } from "lib/context/modal";
+toast;
 import FinishedList from "components/history/finished-list";
 import OngoingList from "components/history/ongoing-list";
 import CenteredSpin from "components/common/centered-spin";
+import { toast } from "react-toastify";
 
 const OrderHistoryReview: NextPage = () => {
     const router = useRouter();
     const [state, dispatch]: any = useAppState();
     const [loading, setLoading] = useState(false);
-    const { handleModal }: any = useContext(ModalContext);
     const { paymentStatusCode }: any = router.query;
     const { upoint }: any = router.query;
 
@@ -105,28 +103,28 @@ const OrderHistoryReview: NextPage = () => {
         fetchDatas();
     }, [router]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    useEffect(() => {
-        if (paymentStatusCode) {
-            if (paymentStatusCode == 200) {
-                handleModal(
-                    true,
-                    "",
-                    upoint
-                        ? `Таны захиалга амжилттай хийгдэж U-Point дансанд ${upoint} оноо нэмэгдлээ`
-                        : `Таны захиалга амжилттай хийгдлээ`,
-                    true,
-                    <div className="flex">
-                        <LargeWhiteButton
-                            text="Ok"
-                            onClick={() => handleModal()}
-                        />
-                    </div>
-                );
-            } else {
-                toast("Уучлаарай, Таны захиалга амжилтгүй боллоо");
-            }
-        }
-    }, [router]); // eslint-disable-line react-hooks/exhaustive-deps
+    // useEffect(() => {
+    //     if (paymentStatusCode) {
+    //         if (paymentStatusCode == 200) {
+    //             handleModal(
+    //                 true,
+    //                 "",
+    //                 upoint
+    //                     ? `Таны захиалга амжилттай хийгдэж U-Point дансанд ${upoint} оноо нэмэгдлээ`
+    //                     : `Таны захиалга амжилттай хийгдлээ`,
+    //                 true,
+    //                 <div className="flex">
+    //                     <LargeWhiteButton
+    //                         text="Ok"
+    //                         onClick={() => handleModal()}
+    //                     />
+    //                 </div>
+    //             );
+    //         } else {
+    //             toast("Уучлаарай, Таны захиалга амжилтгүй боллоо");
+    //         }
+    //     }
+    // }, [router]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return loading ? (
         <CenteredSpin />

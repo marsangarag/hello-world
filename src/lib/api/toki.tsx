@@ -1,20 +1,28 @@
 import axios from "lib/utils/axios";
 
-const urlPrefix = "/coffee/app";
+// const urlPrefix = "/coffee/app";
+const urlPrefix = "/v1";
 
 const TokiAPI = {
-    getUser: (token: string) => axios.get(`${urlPrefix}/user/${token}`),
+    getUser: (token: string) =>
+        axios.post(
+            `${urlPrefix}/token?grant_type=client_credentials&client_id=toki&client_secret=toki&code=${token}`
+        ),
 
-    getAllOffices: () => axios.get(`${urlPrefix}/office/all`),
+    getAllOffices: () => axios.get(`${urlPrefix}/offices`),
 
     getOfficesByNearby: (lat: number, lon: number) =>
-        axios.get(`${urlPrefix}/office?type=nearby&lat=${lat}&lon=${lon}`),
+        axios.get(`${urlPrefix}/offices?lat=${lat}&lon=${lon}`),
 
     getOfficesByName: (name: string) =>
-        axios.get(`${urlPrefix}/office?type=by_name&name=${name}`),
+        axios.get(`${urlPrefix}/offices?keyword=${name}`),
 
-    getMerchantMenuCategories: (merchantId: string) =>
-        axios.get(`${urlPrefix}/merchant/${merchantId}`),
+    getCategories: () => axios.get(`${urlPrefix}/categories`),
+
+    getProductsByCategory: (categoryId: string) =>
+        axios.get(`${urlPrefix}/products?category=${categoryId}`),
+    getProductsByMerchant: (merchantId: string) =>
+        axios.get(`${urlPrefix}/products?merchant=${merchantId}`),
 
     getBanner: (merchantId: string) =>
         axios.get(`${urlPrefix}/merchant/${merchantId}/banner`),

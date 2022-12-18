@@ -11,7 +11,7 @@ import {
 import CategoryCard from "components/product-category/card";
 import { useAppState } from "lib/context/app";
 import {
-    categoryDummyData,
+    dummyCategories,
     dummyProducts,
     recommendedDummyData,
 } from "lib/types/dummy-data";
@@ -20,6 +20,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useDebounce } from "lib/hooks/useDebounce";
 import { toast } from "react-toastify";
+import { Category } from "lib/types/merchant-menu-category.type";
+import useSWR from "swr";
 
 export default function Office() {
     const [state, dispatch]: any = useAppState();
@@ -30,6 +32,8 @@ export default function Office() {
     const [searchProducts, setSearchProducts] = useState<any[]>([]);
     const [showFilters, setShowFilters] = useState<boolean>(false);
     const debouncedValue = useDebounce(searchValue);
+    const apiUrl = "/v1/categories";
+    const { data, error } = useSWR(apiUrl);
 
     const filterNames = [
         "Үнэлгээгээр",
@@ -69,6 +73,8 @@ export default function Office() {
             })
         );
     }, [searchValue]);
+
+    if (error) return null;
 
     return loading ? (
         <CenteredSpin />
@@ -122,12 +128,12 @@ export default function Office() {
                     )
                 ) : (
                     <>
-                        <div className="grid grid-cols-4 items-center gap-y-3.75">
-                            {categoryDummyData?.map((category) => {
+                        <div className="grid grid-cols-4 items-stretch text-center gap-3.75">
+                            {dummyCategories?.map((category: Category) => {
                                 return (
                                     <CategoryCard
                                         category={category}
-                                        key={category.title}
+                                        key={category.name}
                                     />
                                 );
                             })}
@@ -174,7 +180,7 @@ export default function Office() {
                                     .map((merchant: Merchant) => {
                                         return (
                                             <GradientMerchantCard
-                                                key={merchant._id}
+                                                key={merchant.id}
                                                 merchant={merchant}
                                             />
                                         );
@@ -194,7 +200,7 @@ export default function Office() {
                                     .map((merchant: Merchant) => {
                                         return (
                                             <GradientMerchantCard
-                                                key={merchant._id}
+                                                key={merchant.id}
                                                 merchant={merchant}
                                             />
                                         );

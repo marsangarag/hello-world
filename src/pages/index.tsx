@@ -20,9 +20,8 @@ const Index: NextPage = () => {
     const [bySearchbar, setBySearchbar] = useState(false);
     const [height, setHeight] = useState("340px");
     const [maxHeight, setMaxHeight] = useState("45vh");
-    const apiUrl = `/coffee/app/office/all`;
-
-    const { data, error } = useSWR(`${apiUrl}`);
+    // const apiUrl = `/v1/offices`;
+    // const res = useSWR(`${apiUrl}`);
 
     const onSearchSubmit = async (searchValue: string = "") => {
         setLoading(true);
@@ -49,31 +48,7 @@ const Index: NextPage = () => {
 
         try {
             const { data } = await TokiAPI.getOfficesByNearby(lat, lon);
-
-            if (data.status_code === 0) {
-                setNoResults(data?.data?.length === 0);
-                setOffices(data?.data);
-
-                if (!isMyOffice) {
-                    isMyOffice = true;
-
-                    let deliveryOptions: any = {};
-
-                    if (typeof window !== "undefined") {
-                        deliveryOptions = JSON.parse(
-                            localStorage.getItem("deliveryOptions") || "{}"
-                        );
-                    }
-
-                    data?.data.forEach((office: any) => {
-                        if (deliveryOptions.office_id === office._id) {
-                            document.getElementById(`${office._id}`)?.click();
-                        }
-                    });
-                }
-            } else {
-                toast(data.message);
-            }
+            setOffices(data);
         } finally {
             setLoading(false);
         }
@@ -95,7 +70,8 @@ const Index: NextPage = () => {
 
                 <Map
                     onSearchByMap={onSearchByMap}
-                    offices={data ? data?.data?.data : offices}
+                    // offices={data ? data?.data?.data : offices}
+                    offices={offices}
                 />
 
                 {bySearchbar ? (
@@ -126,7 +102,8 @@ const Index: NextPage = () => {
                         {noResults ? (
                             <OfficeList
                                 title="Хоол хүргүүлэх боломжтой оффисууд"
-                                offices={data ? data?.data?.data : offices}
+                                // offices={data ? data?.data?.data : offices}
+                                offices={offices}
                                 loading={loading}
                                 height={height}
                                 setHeight={setHeight}
