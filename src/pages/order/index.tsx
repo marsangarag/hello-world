@@ -90,7 +90,7 @@ const Cart: NextPage = () => {
                 {
                     name: "Гуляш",
                     portion: "Хагас",
-                    comment: "Ална шүү гөлөг минь",
+                    comment: "Хоолоо ид",
                     qty: 1,
                     price: "6900",
                 },
@@ -108,7 +108,7 @@ const Cart: NextPage = () => {
                 {
                     name: "Гуляш",
                     portion: "Хагас",
-                    comment: "Ална шүү гөлөг минь",
+                    comment: "Гоё хоол",
                     qty: 1,
                     price: "6900",
                 },
@@ -122,9 +122,7 @@ const Cart: NextPage = () => {
         },
     ];
 
-    const onSubmit = () => {
-        console.log("sda");
-    };
+    const onSubmit = () => {};
 
     const onOrderClick = () => {
         setShow(true);

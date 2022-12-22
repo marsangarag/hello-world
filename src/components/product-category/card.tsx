@@ -42,7 +42,8 @@ export default function CategoryCard({
             </div>
             <div
                 className={
-                    "text-xs " + (small && active ? "text-main" : "text-gray")
+                    "text-center text-xs " +
+                    (small && active ? "text-main" : "text-gray")
                 }
             >
                 {title}
