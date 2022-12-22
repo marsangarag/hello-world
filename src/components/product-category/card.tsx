@@ -17,9 +17,10 @@ export default function CategoryCard({
     const router = useRouter();
     const onCategoryCardClick = async () => {
         if (!small) {
-            router.push(`/category/${name}`);
+            router.push(`/category/${id}`);
         }
     };
+
     return (
         // <Link href={`/office/${router.query.officeId}/category/${title}`}>
         <div

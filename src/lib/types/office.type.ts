@@ -28,22 +28,25 @@ export default interface Office {
 }
 
 export interface Merchant {
-    id:          string;
-    name:        string;
-    description: string;
-    address:     string;
-    logo:        string;
-    images:      string[];
-    phone:       string;
-    email:       string;
-    facebook:    string;
-    instagram:   string;
-    website:     string;
-    latitude:    number;
-    longitude:   number;
-    timetable:   Timetable;
-    offices:     Office[];
+    
+        id:          string;
+        name:        string;
+        description: string;
+        address:     string;
+        logo:        string;
+        images:      string[];
+        phone:       string;
+        email:       null;
+        facebook:    null;
+        instagram:   null;
+        website:     null;
+        latitude:    number;
+        longitude:   number;
+        open:        boolean;
+        reason:      string;
+        rating:      number;
 }
+    
 
 
 export interface Timetable {

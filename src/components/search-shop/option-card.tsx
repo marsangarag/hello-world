@@ -35,9 +35,9 @@ const OptionCard: React.FC<OptionCardProps> = ({ office }) => {
             }}
         >
             <p className="mr-1 text-sm text-normal">{office.name}</p>
-            <p className="text-sm font-light">
+            {/* <p className="text-sm font-light">
                 ( {office.merchants.length} зоогийн газар )
-            </p>
+            </p> */}
         </button>
     );
 };

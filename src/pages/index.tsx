@@ -10,6 +10,7 @@ import OfficeList from "components/office/office-list";
 import Office from "lib/types/office.type";
 import TokiAPI from "lib/api/toki";
 import { toast } from "react-toastify";
+import { dummyOffices } from "lib/types/dummy-data";
 
 let isMyOffice = false;
 
@@ -20,22 +21,17 @@ const Index: NextPage = () => {
     const [bySearchbar, setBySearchbar] = useState(false);
     const [height, setHeight] = useState("340px");
     const [maxHeight, setMaxHeight] = useState("45vh");
-    // const apiUrl = `/v1/offices`;
-    // const res = useSWR(`${apiUrl}`);
+    const { data, error } = useSWR("/v1/offices");
 
     const onSearchSubmit = async (searchValue: string = "") => {
         setLoading(true);
-
         try {
             const { data } = await TokiAPI.getOfficesByName(
                 searchValue.toLowerCase()
             );
-
-            if (data.status_code === 0) {
-                setNoResults(data?.data?.length === 0);
-                setOffices(data?.data);
-            } else {
-                toast(data.message);
+            if (data) {
+                setNoResults(data?.length === 0);
+                setOffices(data);
             }
         } finally {
             setLoading(false);
@@ -45,9 +41,9 @@ const Index: NextPage = () => {
     const onSearchByMap = async (lat: number, lon: number) => {
         setBySearchbar(false);
         setLoading(true);
-
         try {
             const { data } = await TokiAPI.getOfficesByNearby(lat, lon);
+            setNoResults(data?.length === 0);
             setOffices(data);
         } finally {
             setLoading(false);
@@ -70,8 +66,8 @@ const Index: NextPage = () => {
 
                 <Map
                     onSearchByMap={onSearchByMap}
-                    // offices={data ? data?.data?.data : offices}
-                    offices={offices}
+                    offices={data ? data?.data?.data : offices}
+                    // offices={offices}
                 />
 
                 {bySearchbar ? (
@@ -103,7 +99,8 @@ const Index: NextPage = () => {
                             <OfficeList
                                 title="Хоол хүргүүлэх боломжтой оффисууд"
                                 // offices={data ? data?.data?.data : offices}
-                                offices={offices}
+                                // offices={offices}
+                                offices={dummyOffices}
                                 loading={loading}
                                 height={height}
                                 setHeight={setHeight}
@@ -112,7 +109,8 @@ const Index: NextPage = () => {
                         ) : (
                             <OfficeList
                                 title="Хоол хүргүүлэх оффисоо сонгоно уу"
-                                offices={offices}
+                                // offices={offices}
+                                offices={dummyOffices}
                                 loading={loading}
                                 height={height}
                                 setHeight={setHeight}

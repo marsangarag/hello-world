@@ -12,15 +12,29 @@ const TokiAPI = {
     getAllOffices: () => axios.get(`${urlPrefix}/offices`),
 
     getOfficesByNearby: (lat: number, lon: number) =>
-        axios.get(`${urlPrefix}/offices?lat=${lat}&lon=${lon}`),
+        axios.get(`${urlPrefix}/offices?lat=${lat}&lon=${lon}&from=0&size=20`),
 
     getOfficesByName: (name: string) =>
-        axios.get(`${urlPrefix}/offices?keyword=${name}`),
+        axios.get(`${urlPrefix}/offices?keyword=${name}&from=0&size=10`),
 
     getCategories: () => axios.get(`${urlPrefix}/categories`),
 
+    getMerchantsByOffice: (officeId: string) =>
+        axios.get(`${urlPrefix}/offices/${officeId}/merchants`),
+
+    //Get products by office and additional params, such as search keyword, merchantid or category
+
+    getProductsByOffice: (officeId: string, type?: string, value?: string) => {
+        if (type && value) {
+            return axios.get(
+                `${urlPrefix}/offices/${officeId}/products?${type}=${value}`
+            );
+        } else return axios.get(`${urlPrefix}/offices/${officeId}/products`);
+    },
+
     getProductsByCategory: (categoryId: string) =>
         axios.get(`${urlPrefix}/products?category=${categoryId}`),
+
     getProductsByMerchant: (merchantId: string) =>
         axios.get(`${urlPrefix}/products?merchant=${merchantId}`),
 
